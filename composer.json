@@ -1,0 +1,13 @@
+{
+    "name": "hexlet/code",
+    "authors": [
+        {
+            "name": "vpolekot",
+            "email": "splinter0t@gmail.com"
+        }
+    ],
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+      ]
+}
