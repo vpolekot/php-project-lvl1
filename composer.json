@@ -6,6 +6,7 @@
             "email": "splinter0t@gmail.com"
         }
     ],
+    "description": "hexlet 1-st project",
     "require": {},
     "bin": [
         "bin/brain-games"
