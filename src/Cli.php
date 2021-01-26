@@ -1,5 +1,14 @@
 <?php
-
+/**
+ * Comments
+ * PHP version 7.4
+ * 
+ * @category Function
+ * @package  Brain-Games
+ * @author   author <aaa@email.com>
+ * @license  License 
+ * @link     http://url.com
+ */
 namespace Brain\Games\Cli;
 
 use function cli\line;
