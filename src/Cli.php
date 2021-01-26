@@ -1,7 +1,7 @@
 <?php
 /**
  * Comments
- * 
+ * PHP version 7.4
  * 
  * @category Function
  * @package  Brain-Games
