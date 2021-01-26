@@ -1,0 +1,7 @@
+name: github-actions
+on: [push]
+jobs:
+  checks-by-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - run: make lint
