@@ -3,8 +3,9 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Brain\Games\Cli;
 use Brain\Games\Even;
 
-$username = Cli\getUserName();
-Even\countAnswer($username);
+/*$username = Even\getUserName();
+Even\countAnswer($username);*/
+
+Even\playEven();

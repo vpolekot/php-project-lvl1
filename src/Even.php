@@ -19,6 +19,32 @@ use function cli\prompt;
 /**
  * Undocumented function
  *
+ * @return void
+ */
+function playEven()
+{
+    $name = getUserName();
+    countAnswer($name); 
+}
+
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
+function getUserName()
+{
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('Answer "yes" if the number is even, otherwise answer "no".');
+    return $name;
+}
+
+
+/**
+ * Undocumented function
+ *
  * @param string $username user's name
  * 
  * @return void
@@ -35,6 +61,9 @@ function countAnswer($username)
         }
         if (askUser($username)) {
             $count_correct_answers += 1;
+        } else {
+            line("Let's try again, {$username}!");
+            $count_correct_answers = 0;
         }
     }
 }
@@ -42,24 +71,21 @@ function countAnswer($username)
 /**
  * Undocumented function
  *
- * @param string $username user's name
- * 
  * @return boolean 
  */
-function askUser($username)
+function askUser()
 {
     $question_number = rand(0, 100);
-    $question_number % 2 ? $correct_answer = "yes" :  $correct_answer = "no";
+    $question_number % 2 == 0 ? $correct_answer = "yes" :  $correct_answer = "no";
+    
+    line("Question: {$question_number}");
+    //line("Correct answer {$correct_answer}");
 
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    line('Question: ', $question_number);
-    $user_answer = prompt('Your answer:');
-    if ($user_answer != 'yes' 
-        && $user_answer != 'no' 
-        && $user_answer != $correct_answer
+    $user_answer = prompt('Your answer');
+    if ($user_answer != 'yes' && $user_answer != 'no' 
+        || $user_answer != $correct_answer
     ) {
         line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
-        line("Let's try again, {$username}!");
         return false;
     } else {
         line("Correct!");
