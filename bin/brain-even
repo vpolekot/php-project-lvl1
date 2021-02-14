@@ -5,7 +5,4 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Brain\Games\Even;
 
-/*$username = Even\getUserName();
-Even\countAnswer($username);*/
-
 Even\playEven();

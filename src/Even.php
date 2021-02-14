@@ -54,7 +54,6 @@ function countAnswer($username)
     $count_correct_answers = 0;
 
     while ($count_correct_answers <= 3) {
-        
         if ($count_correct_answers == 3) {
             line("Congratulations, {$username}!");
             break;
@@ -63,7 +62,7 @@ function countAnswer($username)
             $count_correct_answers += 1;
         } else {
             line("Let's try again, {$username}!");
-            $count_correct_answers = 0;
+            break;
         }
     }
 }
