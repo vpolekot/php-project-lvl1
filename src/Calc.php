@@ -9,7 +9,7 @@
  * @license  License 
  * @link     http://url.com
  */
-namespace Brain\Games\Even;
+namespace Brain\Games\Calc;
 
 use function cli\line;
 use function cli\prompt;
