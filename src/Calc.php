@@ -74,9 +74,9 @@ function askUser()
 {
     
     $operations = ['+', '-', '*'];
-    $picked_operation = array_rand($operations, 1);
-    $number_1 = rand(0, 100);
-    $number_2 = rand(0, 100);
+    $picked_operation = $operations[array_rand($operations, 1)];
+    $number_1 = rand(0, 10);
+    $number_2 = rand(0, 10);
 
     switch($picked_operation){
     case '+':
@@ -94,8 +94,7 @@ function askUser()
     line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');
-    if ($user_answer != 'yes' && $user_answer != 'no' 
-        || $user_answer != $correct_answer
+    if ($user_answer != $correct_answer
     ) {
         line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
         return false;
