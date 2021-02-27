@@ -4,12 +4,12 @@
  * PHP version 7.4
  * 
  * @category Function
- * @package  Brain-Calc
+ * @package  Engine
  * @author   author <aaa@email.com>
  * @license  License 
  * @link     http://url.com
  */
-namespace Brain\Games\Calc;
+namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
@@ -19,7 +19,7 @@ use function cli\prompt;
  *
  * @return void
  */
-function playCalc()
+function playGame()
 {
     $name = getUserName();
     countAnswer($name); 
@@ -35,10 +35,9 @@ function getUserName()
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line('What is the result of the expression?');
+    line('Answer "yes" if the number is even, otherwise answer "no".');
     return $name;
 }
-
 
 /**
  * Undocumented function
@@ -72,25 +71,10 @@ function countAnswer($username)
  */
 function askUser()
 {
+    $question_number = rand(0, 100);
+    $question_number % 2 == 0 ? $correct_answer = "yes" :  $correct_answer = "no";
     
-    $operations = ['+', '-', '*'];
-    $picked_operation = $operations[array_rand($operations, 1)];
-    $number_1 = rand(0, 10);
-    $number_2 = rand(0, 10);
-
-    switch($picked_operation){
-    case '+':
-        $correct_answer = $number_1 + $number_2;
-        break;
-    case '-':
-        $correct_answer = $number_1 - $number_2;
-        break;
-    case '*':
-        $correct_answer = $number_1 * $number_2;
-        break;
-    }
-
-    line("Question: {$number_1} {$picked_operation} {$number_2}");
+    line("Question: {$question_number}");
     //line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');

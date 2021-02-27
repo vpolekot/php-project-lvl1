@@ -11,8 +11,6 @@
  */
 namespace Brain\Games\Even;
 
-//use Brain\Games\Cli;
-
 use function cli\line;
 use function cli\prompt;
 
