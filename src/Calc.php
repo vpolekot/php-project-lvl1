@@ -19,7 +19,7 @@ use function cli\prompt;
  *
  * @return void
  */
-function playEven()
+function playCalc()
 {
     $name = getUserName();
     countAnswer($name); 
@@ -35,7 +35,7 @@ function getUserName()
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    line('What is the result of the expression?');
     return $name;
 }
 
@@ -72,11 +72,26 @@ function countAnswer($username)
  */
 function askUser()
 {
-    $question_number = rand(0, 100);
-    $question_number % 2 == 0 ? $correct_answer = "yes" :  $correct_answer = "no";
     
-    line("Question: {$question_number}");
-    //line("Correct answer {$correct_answer}");
+    $operations = ['+', '-', '*'];
+    $picked_operation = array_rand($operations, 1);
+    $number_1 = rand(0, 100);
+    $number_2 = rand(0, 100);
+
+    switch($picked_operation){
+    case '+':
+        $correct_answer = $number_1 + $number_2;
+        break;
+    case '-':
+        $correct_answer = $number_1 - $number_2;
+        break;
+    case '*':
+        $correct_answer = $number_1 * $number_2;
+        break;
+    }
+
+    line("Question: {$number_1} {$picked_operation} {$number_2}");
+    line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');
     if ($user_answer != 'yes' && $user_answer != 'no' 
