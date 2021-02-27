@@ -81,9 +81,7 @@ function askUser()
     //line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');
-    if ($user_answer != 'yes' && $user_answer != 'no' 
-        || $user_answer != $correct_answer
-    ) {
+    if ($user_answer != $correct_answer) {
         line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
         return false;
     } else {
