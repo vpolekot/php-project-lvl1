@@ -54,58 +54,7 @@ function getNumber()
     return rand(0, 100);
 }
 
-//-------------------------------------------------------------
-/**
- * Undocumented function
- *
- * @return void
- */
-function playEven()
-{
-    $name = getUserName();
-    countAnswer($name); 
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function getUserName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Answer "yes" if the number is even, otherwise answer "no".');
-    return $name;
-}
-
-
-/**
- * Undocumented function
- *
- * @param string $username user's name
- * 
- * @return void
- */
-function countAnswer($username)
-{
-    $count_correct_answers = 0;
-
-    while ($count_correct_answers <= 3) {
-        if ($count_correct_answers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $count_correct_answers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
-}
-
+//-------old
 /**
  * Undocumented function
  *

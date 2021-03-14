@@ -19,25 +19,15 @@ use function cli\prompt;
  *
  * @return void
  */
-function playCalc()
+function getGameData()
 {
-    $name = getUserName();
-    countAnswer($name); 
+    return [
+        "rule" => 'What is the result of the expression?',
+        "question" => $number = getNumber(),
+        "correct_answer" => isEven($number)
+    ];
 }
 
-/**
- * Undocumented function
- *
- * @return void
- */
-function getUserName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
-    return $name;
-}
 
 
 /**

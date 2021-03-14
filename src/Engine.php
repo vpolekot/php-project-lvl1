@@ -11,9 +11,11 @@
  */
 namespace Brain\Games\Engine;
 
+use Brain\Games\Even;
+use Brain\Games\Calc;
 use function cli\line;
 use function cli\prompt;
-use function Brain\Games\Even\getGameData;
+
 /**
  * Undocumented function
  *
@@ -21,19 +23,18 @@ use function Brain\Games\Even\getGameData;
  */
 function playGame()
 {
-    /*line('Welcome to the Brain Game!');
+    line('Welcome to the Brain Game!');
     $name = getUserName();
     line("Hello, %s!", $name);
 
-    $game = pickGame();*/
+    //$game = pickGame();*/
     
-
-    $name = 'name';
     $game = 'Even';
 
-    ['rule' => $rule] = getGameData();
+    $fname = "Brain\Games\\".$game."\\getGameData";
+    ['rule' => $rule] = $fname();
     line($rule);
-
+    
     $countCorrectAnswers = 0;
     $iterationsAmount = 3;
 
@@ -43,7 +44,7 @@ function playGame()
             break;
         }
 
-        ['question' => $question, 'correct_answer' => $correctAnswer] = getGameData();
+        ['question' => $question, 'correct_answer' => $correctAnswer] = $fname();
 
         line("Question: {$question}");
         line("Correct answer: {$correctAnswer}");
