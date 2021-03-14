@@ -72,6 +72,56 @@ function getQuestion($expression)
                     . ']';
 }
 
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
+function playProgression()
+{
+    $name = getUserName();
+    countAnswer($name); 
+}
+
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
+function getUserName()
+{
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('What is the result of the expression?');
+    return $name;
+}
+
+
+/**
+ * Undocumented function
+ *
+ * @param string $username user's name
+ * 
+ * @return void
+ */
+function countAnswer($username)
+{
+    $count_correct_answers = 0;
+
+    while ($count_correct_answers <= 3) {
+        if ($count_correct_answers == 3) {
+            line("Congratulations, {$username}!");
+            break;
+        }
+        if (askUser($username)) {
+            $count_correct_answers += 1;
+        } else {
+            line("Let's try again, {$username}!");
+            break;
+        }
+    }
+}
 
 /**
  * Undocumented function
