@@ -116,9 +116,11 @@ function askUser()
     $number_1 = rand(0, 10);
     $number_2 = rand(0, 10);
 
+    line("Question: $number_1 $number_2");
+
     $correct_answer = gmp_gcd($number_1, $number_2);
 
-    line("Question: {$number_1} {$number_2}");
+    
     //line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');
