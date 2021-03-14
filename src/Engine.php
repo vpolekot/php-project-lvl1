@@ -29,7 +29,7 @@ function playGame()
 
     //$game = pickGame();*/
     
-    $game = 'Even';
+    $game = 'Calc';
 
     $fname = "Brain\Games\\".$game."\\getGameData";
     ['rule' => $rule] = $fname();

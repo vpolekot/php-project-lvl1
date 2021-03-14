@@ -21,38 +21,56 @@ use function cli\prompt;
  */
 function getGameData()
 {
+    [$operation, $number_1, $number_2] = getExpressionData();
+    
     return [
         "rule" => 'What is the result of the expression?',
-        "question" => $number = getNumber(),
-        "correct_answer" => isEven($number)
+        "question" => "{$number_1} {$operation} {$number_2}",
+        "correct_answer" => getAnswer($operation, $number_1, $number_2)
     ];
 }
-
-
 
 /**
  * Undocumented function
  *
- * @param string $username user's name
+ * @return void
+ */
+function getExpressionData()
+{
+    $operations = ['+', '-', '*'];
+    $picked_operation = $operations[array_rand($operations, 1)];
+    $number_1 = rand(0, 10);
+    $number_2 = rand(0, 10);
+    
+    return [$picked_operation, $number_1, $number_2];
+}
+
+/**
+ * Undocumented function
+ *
+ * @param string $operation operation to do
+ * @param int    $number_1  operand 1
+ * @param int    $number_2  operand 2
  * 
  * @return void
  */
-function countAnswer($username)
+function getAnswer($operation, $number_1, $number_2)
 {
-    $count_correct_answers = 0;
-
-    while ($count_correct_answers <= 3) {
-        if ($count_correct_answers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $count_correct_answers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
+    switch($operation){
+    case '+':
+            $correctAnswer = $number_1 + $number_2;
+        break;
+    case '-':
+            $correctAnswer = $number_1 - $number_2;
+        break;
+    case '*':
+            $correctAnswer = $number_1 * $number_2;
+        break;
+    default:
+        break;
     }
+    
+    return $correctAnswer;
 }
 
 /**
@@ -70,24 +88,24 @@ function askUser()
 
     switch($picked_operation){
     case '+':
-        $correct_answer = $number_1 + $number_2;
+        $$correctAnswer = $number_1 + $number_2;
         break;
     case '-':
-        $correct_answer = $number_1 - $number_2;
+        $$correctAnswer = $number_1 - $number_2;
         break;
     case '*':
-        $correct_answer = $number_1 * $number_2;
+        $$correctAnswer = $number_1 * $number_2;
         break;
     default:
         break;
     }
 
     line("Question: {$number_1} {$picked_operation} {$number_2}");
-    //line("Correct answer {$correct_answer}");
+    //line("Correct answer {$$correctAnswer}");
 
     $user_answer = prompt('Your answer');
-    if ($user_answer != $correct_answer) {
-        line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
+    if ($user_answer != $$correctAnswer) {
+        line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$$correctAnswer}'");
         return false;
     } else {
         line("Correct!");

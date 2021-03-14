@@ -23,8 +23,8 @@ function getGameData()
 {
     return [
         "rule" => 'Answer "yes" if the number is even, otherwise answer "no".',
-        "question" => $number = getNumber(),
-        "correct_answer" => isEven($number)
+        "question" => $number = getQuestion(),
+        "correct_answer" => getAnswer($number)
     ];
 }
 
@@ -35,7 +35,7 @@ function getGameData()
  * 
  * @return boolean
  */
-function isEven($number) 
+function getAnswer($number) 
 {
     if ($number % 2 == 0) {
         return "yes";
@@ -49,7 +49,7 @@ function isEven($number)
  *
  * @return void
  */
-function getNumber()
+function getQuestion()
 {
     return rand(0, 100);
 }
