@@ -139,7 +139,7 @@ function askUser()
                     . '';
 
     line("Question: $question");
-    //line("Correct answer {$correct_answer}");
+    line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');
     if ($user_answer != $correct_answer) {
