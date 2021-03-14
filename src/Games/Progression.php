@@ -139,7 +139,7 @@ function askUser()
         $space = ' .. ';
     }
     $question = ''.implode(' ', array_slice($progression, 0, $hidden_key)) 
-                    . ' .. ' 
+                    . $space  
                     . implode(' ', array_slice($progression, $hidden_key+1, count($progression))) 
                     . '';
 
