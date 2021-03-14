@@ -21,10 +21,12 @@ use function cli\prompt;
  */
 function getGameData()
 {
+    $expression = getExpression();
+
     return [
         "rule" => 'Answer "yes" if the number is even, otherwise answer "no".',
-        "question" => $number = getQuestion(),
-        "correct_answer" => getAnswer($number)
+        "question" => $expression,
+        "correct_answer" => getAnswer($expression)
     ];
 }
 
@@ -49,7 +51,7 @@ function getAnswer($number)
  *
  * @return void
  */
-function getQuestion()
+function getExpression()
 {
     return rand(0, 100);
 }

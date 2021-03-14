@@ -21,12 +21,12 @@ use function cli\prompt;
  */
 function getGameData()
 {
-    [$operation, $number_1, $number_2] = getExpressionData();
+    $expression = getExpression();
     
     return [
         "rule" => 'What is the result of the expression?',
-        "question" => "{$number_1} {$operation} {$number_2}",
-        "correct_answer" => getAnswer($operation, $number_1, $number_2)
+        "question" => getQuestion($expression),
+        "correct_answer" => getAnswer($expression)
     ];
 }
 
@@ -35,36 +35,49 @@ function getGameData()
  *
  * @return void
  */
-function getExpressionData()
+function getExpression()
 {
     $operations = ['+', '-', '*'];
     $picked_operation = $operations[array_rand($operations, 1)];
-    $number_1 = rand(0, 10);
-    $number_2 = rand(0, 10);
+    $operand_1 = rand(0, 10);
+    $operand_2 = rand(0, 10);
     
-    return [$picked_operation, $number_1, $number_2];
+    return [$picked_operation, $operand_1, $operand_2];
 }
 
 /**
  * Undocumented function
  *
- * @param string $operation operation to do
- * @param int    $number_1  operand 1
- * @param int    $number_2  operand 2
+ * @param [type] $expression
  * 
  * @return void
  */
-function getAnswer($operation, $number_1, $number_2)
+function getQuestion($expression)
 {
+    [$operation, $operand_1, $operand_2] = getExpression();
+    return "{$operand_1} {$operation} {$operand_2}";
+}
+
+/**
+ * Undocumented function
+ *
+ * @param [type] $expression
+ * 
+ * @return void
+ */
+function getAnswer($expression)
+{
+    [$operation, $operand_1, $operand_2] = getExpression();
+
     switch($operation){
     case '+':
-            $correctAnswer = $number_1 + $number_2;
+            $correctAnswer = $operand_1 + $operand_2;
         break;
     case '-':
-            $correctAnswer = $number_1 - $number_2;
+            $correctAnswer = $operand_1 - $operand_2;
         break;
     case '*':
-            $correctAnswer = $number_1 * $number_2;
+            $correctAnswer = $operand_1 * $operand_2;
         break;
     default:
         break;
@@ -83,24 +96,24 @@ function askUser()
     
     $operations = ['+', '-', '*'];
     $picked_operation = $operations[array_rand($operations, 1)];
-    $number_1 = rand(0, 10);
-    $number_2 = rand(0, 10);
+    $operand_1 = rand(0, 10);
+    $operand_2 = rand(0, 10);
 
     switch($picked_operation){
     case '+':
-        $$correctAnswer = $number_1 + $number_2;
+        $$correctAnswer = $operand_1 + $operand_2;
         break;
     case '-':
-        $$correctAnswer = $number_1 - $number_2;
+        $$correctAnswer = $operand_1 - $operand_2;
         break;
     case '*':
-        $$correctAnswer = $number_1 * $number_2;
+        $$correctAnswer = $operand_1 * $operand_2;
         break;
     default:
         break;
     }
 
-    line("Question: {$number_1} {$picked_operation} {$number_2}");
+    line("Question: {$operand_1} {$picked_operation} {$operand_2}");
     //line("Correct answer {$$correctAnswer}");
 
     $user_answer = prompt('Your answer');
