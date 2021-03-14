@@ -133,10 +133,10 @@ function askUser()
     $progression = array_slice(range(rand(0, 50), 100, rand(1, 10)), 0, 10);
     $hidden_key = rand(0, count($progression)-1);
     $correct_answer = $progression[$hidden_key];
-    $question = '[' . implode(' ', array_slice($progression, 0, $hidden_key)) 
+    $question = ''.implode(' ', array_slice($progression, 0, $hidden_key)) 
                     . ' .. ' 
                     . implode(' ', array_slice($progression, $hidden_key+1, count($progression))) 
-                    . ']';
+                    . '';
 
     line("Question: $question");
     //line("Correct answer {$correct_answer}");
