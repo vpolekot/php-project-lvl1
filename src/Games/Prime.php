@@ -82,7 +82,7 @@ function askUser()
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     line($question);
     line("Question: $number");
-    line("Correct answer {$correct_answer}");
+    //line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');
     if ($user_answer != $correct_answer) {
