@@ -19,50 +19,43 @@ use function cli\prompt;
  *
  * @return void
  */
-function playPrime()
+function getGameData()
 {
-    $name = getUserName();
-    countAnswer($name); 
+    return [
+        "rule" => 'Answer "yes" if given number is prime. Otherwise answer "no".',
+        "question" => $number = getQuestion(),
+        "correct_answer" => getAnswer($number)
+    ];
 }
 
 /**
  * Undocumented function
  *
- * @return void
- */
-function getUserName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
-    return $name;
-}
-
-
-/**
- * Undocumented function
- *
- * @param string $username user's name
+ * @param int $number number to check
  * 
+ * @return int return 0 if not prime, return 1 if prime 
+ */
+function getAnswer($number)
+{ 
+    if ($number == 1) {
+        return "no"; 
+    }
+    for ($i = 2; $i <= $number/2; $i++) { 
+        if ($number % $i == 0) {
+            return "yes"; 
+        }
+    } 
+    return "no"; 
+} 
+
+/**
+ * Undocumented function
+ *
  * @return void
  */
-function countAnswer($username)
+function getQuestion()
 {
-    $count_correct_answers = 0;
-
-    while ($count_correct_answers <= 3) {
-        if ($count_correct_answers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $count_correct_answers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
+    return rand(1, 100);
 }
 
 /**
@@ -70,7 +63,7 @@ function countAnswer($username)
  *
  * @return boolean 
  */
-function askUser()
+/*function askUser()
 {
     $number = rand(1, 100);
     if (primeCheck($number) == 1) {
@@ -92,24 +85,5 @@ function askUser()
         line("Correct!");
         return true;
     }
-}
+}*/
 
-/**
- * Undocumented function
- *
- * @param int $number number to check
- * 
- * @return int return 0 if not prime, return 1 if prime 
- */
-function primeCheck($number)
-{ 
-    if ($number == 1) {
-        return 0; 
-    }
-    for ($i = 2; $i <= $number/2; $i++) { 
-        if ($number % $i == 0) {
-            return 0; 
-        }
-    } 
-    return 1; 
-} 

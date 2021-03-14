@@ -19,51 +19,40 @@ use function cli\prompt;
  *
  * @return void
  */
-function playGCD()
+function getGameData()
 {
-    $name = getUserName();
-    countAnswer($name); 
+    [$number_1, $number_2] = getOperands();
+
+    return [
+        "rule" => 'Find the greatest common divisor of given numbers.',
+        "question" => "{$number_1} {$number_2}",
+        "correct_answer" => getAnswer($number_1, $number_2)
+    ];
 }
 
 /**
  * Undocumented function
  *
- * @return void
- */
-function getUserName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
-    return $name;
-}
-
-
-/**
- * Undocumented function
- *
- * @param string $username user's name
+ * @param int $number_1 operand 1
+ * @param int $number_2 operand 2
  * 
  * @return void
  */
-function countAnswer($username)
+function getAnswer($number_1, $number_2)
 {
-    $count_correct_answers = 0;
-
-    while ($count_correct_answers <= 3) {
-        if ($count_correct_answers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $count_correct_answers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
+    return gmp_gcd($number_1, $number_2);
 }
+
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
+function getOperands()
+{
+    return [rand(0, 10), rand(0, 10)];
+}
+
 
 /**
  * Undocumented function
