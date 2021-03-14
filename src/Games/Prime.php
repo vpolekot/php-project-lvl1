@@ -97,7 +97,8 @@ function askUser()
 /**
  * Undocumented function
  *
- * @param  int $number number to check
+ * @param int $number number to check
+ * 
  * @return int return 0 if not prime, return 1 if prime 
  */
 function primeCheck($number)

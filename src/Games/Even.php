@@ -19,6 +19,47 @@ use function cli\prompt;
  *
  * @return void
  */
+function getGameData()
+{
+    return [
+        "rule" => 'Answer "yes" if the number is even, otherwise answer "no".',
+        "question" => $number = getNumber(),
+        "correct_answer" => isEven($number)
+    ];
+}
+
+/**
+ * Undocumented function
+ *
+ * @param int $number number to check
+ * 
+ * @return boolean
+ */
+function isEven($number) 
+{
+    if ($number % 2 == 0) {
+        return "yes";
+    } else {
+        return "no";
+    }
+}
+
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
+function getNumber()
+{
+    return rand(0, 100);
+}
+
+//-------------------------------------------------------------
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
 function playEven()
 {
     $name = getUserName();

@@ -13,7 +13,7 @@ namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
-
+use function Brain\Games\Even\getGameData;
 /**
  * Undocumented function
  *
@@ -21,17 +21,62 @@ use function cli\prompt;
  */
 function playGame()
 {
-    line('Welcome to the Brain Game!');
+    /*line('Welcome to the Brain Game!');
     $name = getUserName();
     line("Hello, %s!", $name);
 
-    $games = ['Calc', 'Even', 'GCD', 'Prime', 'Progression'];
-    $pickedGame = $games[array_rand($games, 1)];
+    $game = pickGame();*/
+    
 
+    $name = 'name';
+    $game = 'Even';
+
+    ['rule' => $rule] = getGameData();
+    line($rule);
+
+    $countCorrectAnswers = 0;
+    $iterationsAmount = 3;
+
+    while ($countCorrectAnswers <= $iterationsAmount) {
+        if ($countCorrectAnswers == $iterationsAmount) {
+            line("Congratulations, {$name}!");
+            break;
+        }
+
+        ['question' => $question, 'correct_answer' => $correctAnswer] = getGameData();
+
+        line("Question: {$question}");
+        line("Correct answer: {$correctAnswer}");
+
+        $user_answer = prompt('Your answer');
+
+        if ($user_answer != $correctAnswer) {
+            line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
+            line("Let's try again, {$name}!");
+            break;
+        } else {
+            line("Correct!");
+            $countCorrectAnswers += 1;
+        }
+    }
 
 }
 
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
+function pickGame()
+{
+    $directory = 'src/Games/';
+    $scannedDirectory = array_diff(scandir($directory), array('..', '.'));
+    $pickedGame = $scannedDirectory[array_rand($scannedDirectory, 1)];
+    //$pickedGame = 'Even';
 
+    print_r(basename($pickedGame, '.php')."\n");
+    return $pickedGame;
+}
 
 /**
  * Undocumented function
@@ -64,16 +109,16 @@ function getUserName()
  */
 function countAnswer($username)
 {
-    $correctAnswers = 0;
+    $countCorrectAnswers = 0;
     $iterationsAmount = 3;
 
-    while ($correctAnswers <= $iterationsAmount) {
-        if ($correctAnswers == $iterationsAmount) {
+    while ($countCorrectAnswers <= $iterationsAmount) {
+        if ($countCorrectAnswers == $iterationsAmount) {
             line("Congratulations, {$username}!");
             break;
         }
         if (askUser($username)) {
-            $correctAnswers += 1;
+            $countCorrectAnswers += 1;
         } else {
             line("Let's try again, {$username}!");
             break;
