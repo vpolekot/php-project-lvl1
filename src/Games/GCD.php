@@ -121,7 +121,7 @@ function askUser()
     $correct_answer = findGCD($number_1, $number_2);
 
     
-    //line("Correct answer {$correct_answer}");
+    line("Correct answer {$correct_answer}");
 
     $user_answer = prompt('Your answer');
     if ($user_answer != $correct_answer) {
@@ -141,11 +141,8 @@ function askUser()
  * 
  * @return void
  */
-function findGCD($number_1, $number_2)
+function findGCD($x, $y)
 {
-    $x = 50;
-    $y = 100;
-
     if ($x > $y) {
         $temp = $x;
         $x = $y;
