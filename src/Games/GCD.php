@@ -136,24 +136,11 @@ function askUser()
 /**
  * Undocumented function
  *
- * @param [type] $number_1
- * @param [type] $number_2
- * 
+ * @param int $a
+ * @param int $b
  * @return void
  */
-function findGCD($x, $y)
+function findGCD($a, $b) 
 {
-    if ($x > $y) {
-        $temp = $x;
-        $x = $y;
-        $y = $temp;
-    }
-
-    for ($i = 1; $i < ($x+1); $i++) {
-        if ($x%$i == 0 and $y%$i == 0) {
-            $gcd = $i;
-        }
-        
-    }
-    return $gcd;
+    return ($a % $b) ? findGCD($b, $a % $b) : $b;
 }
