@@ -118,7 +118,7 @@ function askUser()
 
     line("Question: $number_1 $number_2");
 
-    $correct_answer = gmp_gcd($number_1, $number_2);
+    $correct_answer = findGCD($number_1, $number_2);
 
     
     //line("Correct answer {$correct_answer}");
@@ -131,4 +131,32 @@ function askUser()
         line("Correct!");
         return true;
     }
+}
+
+/**
+ * Undocumented function
+ *
+ * @param [type] $number_1
+ * @param [type] $number_2
+ * 
+ * @return void
+ */
+function findGCD($number_1, $number_2)
+{
+    $x = 50;
+    $y = 100;
+
+    if ($x > $y) {
+        $temp = $x;
+        $x = $y;
+        $y = $temp;
+    }
+
+    for ($i = 1; $i < ($x+1); $i++) {
+        if ($x%$i == 0 and $y%$i == 0) {
+            $gcd = $i;
+        }
+        
+    }
+    return $gcd;
 }
