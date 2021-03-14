@@ -48,7 +48,7 @@ function getExpression()
 /**
  * Undocumented function
  *
- * @param [type] $expression
+ * @param [type] $expression expression
  * 
  * @return void
  */
@@ -61,7 +61,7 @@ function getQuestion($expression)
 /**
  * Undocumented function
  *
- * @param [type] $expression
+ * @param [type] $expression expression
  * 
  * @return void
  */

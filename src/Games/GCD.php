@@ -136,8 +136,9 @@ function askUser()
 /**
  * Undocumented function
  *
- * @param int $a
- * @param int $b
+ * @param int $a operand 1
+ * @param int $b operand 2
+ * 
  * @return void
  */
 function findGCD($a, $b) 

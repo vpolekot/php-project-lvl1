@@ -34,7 +34,7 @@ function getGameData()
 /**
  * Undocumented function
  *
- * @param [type] $expression
+ * @param [type] $expression expression
  * 
  * @return void
  */
@@ -59,7 +59,7 @@ function getExpression()
 /**
  * Undocumented function
  *
- * @param [type] $expression
+ * @param [type] $expression expression
  * 
  * @return void
  */

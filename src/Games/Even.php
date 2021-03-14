@@ -56,7 +56,11 @@ function getExpression()
     return rand(0, 100);
 }
 
-//-------old
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
 function playEven()
 {
     $name = getUserName();
