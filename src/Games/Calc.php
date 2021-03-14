@@ -88,6 +88,8 @@ function askUser()
     case '*':
         $correct_answer = $number_1 * $number_2;
         break;
+    default:
+        break;
     }
 
     line("Question: {$number_1} {$picked_operation} {$number_2}");

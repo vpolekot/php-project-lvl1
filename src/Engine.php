@@ -21,6 +21,25 @@ use function cli\prompt;
  */
 function playGame()
 {
+    line('Welcome to the Brain Game!');
+    $name = getUserName();
+    line("Hello, %s!", $name);
+
+    $games = ['Calc', 'Even', 'GCD', 'Prime', 'Progression'];
+    $pickedGame = $games[array_rand($games, 1)];
+
+
+}
+
+
+
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
+function playGamez()
+{
     $name = getUserName();
     countAnswer($name); 
 }
@@ -32,10 +51,7 @@ function playGame()
  */
 function getUserName()
 {
-    line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Answer "yes" if the number is even, otherwise answer "no".');
     return $name;
 }
 
@@ -48,15 +64,16 @@ function getUserName()
  */
 function countAnswer($username)
 {
-    $count_correct_answers = 0;
+    $correctAnswers = 0;
+    $iterationsAmount = 3;
 
-    while ($count_correct_answers <= 3) {
-        if ($count_correct_answers == 3) {
+    while ($correctAnswers <= $iterationsAmount) {
+        if ($correctAnswers == $iterationsAmount) {
             line("Congratulations, {$username}!");
             break;
         }
         if (askUser($username)) {
-            $count_correct_answers += 1;
+            $correctAnswers += 1;
         } else {
             line("Let's try again, {$username}!");
             break;
