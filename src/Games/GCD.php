@@ -113,8 +113,8 @@ function countAnswer($username)
 function askUser()
 {
     
-    $number_1 = rand(0, 10);
-    $number_2 = rand(0, 10);
+    $number_1 = rand(1, 10);
+    $number_2 = rand(1, 10);
 
     line("Question: $number_1 $number_2");
 
