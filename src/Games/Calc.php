@@ -1,14 +1,16 @@
 <?php
+
 /**
  * Comments
  * PHP version 7.4
- * 
+ *
  * @category Function
  * @package  Brain-Calc
  * @author   author <aaa@email.com>
  * @license  License 
  * @link     http://url.com
  */
+
 namespace Brain\Games\Calc;
 
 use function cli\line;
@@ -69,15 +71,15 @@ function getAnswer($expression)
 {
     [$operation, $operand_1, $operand_2] = getExpression();
 
-    switch($operation){
+    switch ($operation) {
     case '+':
-            $correctAnswer = $operand_1 + $operand_2;
+        $correctAnswer = $operand_1 + $operand_2;
         break;
     case '-':
-            $correctAnswer = $operand_1 - $operand_2;
+        $correctAnswer = $operand_1 - $operand_2;
         break;
     case '*':
-            $correctAnswer = $operand_1 * $operand_2;
+        $correctAnswer = $operand_1 * $operand_2;
         break;
     default:
         break;
