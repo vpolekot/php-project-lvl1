@@ -73,7 +73,7 @@ function getQuestion($progression, $hidden_key)
     } else {
         $space = ' .. ';
     }
-    return implode(' ', array_slice($progression, 0, $hidden_key)) 
+    return implode(' ', array_slice($progression, 0, $hidden_key))
                 . $space
                 . implode(' ', array_slice($progression, $hidden_key + 1, count($progression)));
 }

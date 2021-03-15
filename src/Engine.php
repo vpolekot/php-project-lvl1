@@ -30,7 +30,7 @@ function play($gameData)
     line("Hello, %s!", $name);
     ['rule' => $rule] = $gameData();
     line($rule);
-    
+
     $countCorrectAnswers = 0;
     define("ITERATIONS_AMOUNT", 3);
 
