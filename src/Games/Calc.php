@@ -53,7 +53,7 @@ function getExpression()
 /**
  * Undocumented function
  *
- * @param [type] $expression expression
+ * @param array $expression expression
  *
  * @return string
  */
@@ -66,7 +66,7 @@ function getQuestion($expression)
 /**
  * Undocumented function
  *
- * @param [type] $expression expression
+ * @param array $expression expression
  *
  * @return int
  */
