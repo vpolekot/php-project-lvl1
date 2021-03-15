@@ -13,23 +13,26 @@
 
 namespace Brain\Games\Calc;
 
-use function cli\line;
-use function cli\prompt;
+use Brain\Games\Engine as Engine;
 
 /**
  * Undocumented function
  *
  * @return void
  */
-function getGameData()
+function playCalc()
 {
-    $expression = getExpression();
-    
-    return [
-        "rule" => 'What is the result of the expression?',
-        "question" => getQuestion($expression),
-        "correct_answer" => getAnswer($expression)
-    ];
+    $gameData = function () {
+        $expression = getExpression();
+        
+        return [
+            "rule" => 'What is the result of the expression?',
+            "question" => getQuestion($expression),
+            "correct_answer" => getAnswer($expression)
+        ];
+    };
+
+    Engine\play($gameData);
 }
 
 /**
@@ -56,7 +59,7 @@ function getExpression()
  */
 function getQuestion($expression)
 {
-    [$operation, $operand_1, $operand_2] = getExpression();
+    [$operation, $operand_1, $operand_2] = $expression;
     return "{$operand_1} {$operation} {$operand_2}";
 }
 
@@ -69,7 +72,7 @@ function getQuestion($expression)
  */
 function getAnswer($expression)
 {
-    [$operation, $operand_1, $operand_2] = getExpression();
+    [$operation, $operand_1, $operand_2] = $expression;
 
     switch ($operation) {
     case '+':
@@ -86,93 +89,4 @@ function getAnswer($expression)
     }
     
     return $correctAnswer;
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function playCalc()
-{
-    $name = getUserName();
-    countAnswer($name); 
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function getUserName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
-    return $name;
-}
-
-
-/**
- * Undocumented function
- *
- * @param string $username user's name
- * 
- * @return void
- */
-function countAnswer($username)
-{
-    $countCorrectAnswers = 0;
-
-    while ($countCorrectAnswers <= 3) {
-        if ($countCorrectAnswers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $countCorrectAnswers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
-}
-
-/**
- * Undocumented function
- *
- * @return boolean 
- */
-function askUser()
-{
-    
-    $operations = ['+', '-', '*'];
-    $picked_operation = $operations[array_rand($operations, 1)];
-    $number_1 = rand(0, 10);
-    $number_2 = rand(0, 10);
-
-    switch($picked_operation){
-    case '+':
-        $correct_answer = $number_1 + $number_2;
-        break;
-    case '-':
-        $correct_answer = $number_1 - $number_2;
-        break;
-    case '*':
-        $correct_answer = $number_1 * $number_2;
-        break;
-    }
-
-    line("Question: {$number_1} {$picked_operation} {$number_2}");
-    //line("Correct answer {$correct_answer}");
-
-    $userAnswer = prompt('Your answer');
-    if ($userAnswer != $correct_answer) {
-        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
-        return false;
-    } else {
-        line("Correct!");
-        return true;
-    }
 }

@@ -13,52 +13,8 @@
 
 namespace Brain\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
+use Brain\Games\Engine as Engine;
 
-/**
- * Undocumented function
- *
- * @return void
- */
-function getGameData()
-{
-    return [
-        "rule" => 'Answer "yes" if given number is prime. Otherwise answer "no".',
-        "question" => $number = getQuestion(),
-        "correct_answer" => getAnswer($number)
-    ];
-}
-
-/**
- * Undocumented function
- *
- * @param int $number number to check
- * 
- * @return string return "no" if not prime, return "yes" if prime 
- */
-function getAnswer($number)
-{ 
-    if ($number == 1) {
-        return "no"; 
-    }
-    for ($i = 2; $i <= $number/2; $i++) { 
-        if ($number % $i == 0) {
-            return "yes"; 
-        }
-    } 
-    return "no"; 
-} 
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function getQuestion()
-{
-    return rand(1, 100);
-}
 
 /**
  * Undocumented function
@@ -67,77 +23,15 @@ function getQuestion()
  */
 function playPrime()
 {
-    $name = getUserName();
-    countAnswer($name); 
-}
+    $gameData = function () {
+        return [
+            "rule" => 'Answer "yes" if given number is prime. Otherwise answer "no".',
+            "question" => $number = getNumber(),
+            "correct_answer" => getAnswer($number)
+        ];
+    };
 
-/**
- * Undocumented function
- *
- * @return void
- */
-function getUserName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
-    return $name;
-}
-
-
-/**
- * Undocumented function
- *
- * @param string $username user's name
- * 
- * @return void
- */
-function countAnswer($username)
-{
-    $countCorrectAnswers = 0;
-
-    while ($countCorrectAnswers <= 3) {
-        if ($countCorrectAnswers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $countCorrectAnswers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
-}
-
-/**
- * Undocumented function
- *
- * @return boolean 
- */
-function askUser()
-{
-    $number = rand(1, 100);
-    if (primeCheck($number) == 1) {
-        $correct_answer = "yes";
-    } else {
-        $correct_answer = "no";
-    }
-
-    $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    line($question);
-    line("Question: $number");
-    //line("Correct answer {$correct_answer}");
-
-    $userAnswer = prompt('Your answer');
-    if ($userAnswer != $correct_answer) {
-        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
-        return false;
-    } else {
-        line("Correct!");
-        return true;
-    }
+    Engine\play($gameData);
 }
 
 /**
@@ -145,17 +39,24 @@ function askUser()
  *
  * @param int $number number to check
  * 
- * @return int return 0 if not prime, return 1 if prime 
+ * @return string "no" if not prime, "yes" if prime 
  */
-function primeCheck($number)
+function getAnswer($number)
 { 
-    if ($number == 1) {
-        return 0; 
-    }
-    for ($i = 2; $i <= $number/2; $i++) { 
+    for ($i = 2; $i <= sqrt($number); $i++) {
         if ($number % $i == 0) {
-            return 0; 
+            return "no";
         }
-    } 
-    return 1; 
+    }
+    return "yes";
 } 
+
+/**
+ * Undocumented function
+ *
+ * @return int
+ */
+function getNumber()
+{
+    return rand(1, 100);
+}

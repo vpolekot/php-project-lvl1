@@ -13,46 +13,38 @@
 
 namespace Brain\Games\Engine;
 
-use Brain\Games\Even;
-use Brain\Games\Calc;
-use Brain\Games\Prime;
-use Brain\Games\GCD;
-use Brain\Games\Progression;
 use function cli\line;
 use function cli\prompt;
 
 /**
  * Undocumented function
  *
+ * @param callback-function $gameData data
+ * 
  * @return void
  */
-function playGame()
+function play($gameData)
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-
-    $game = pickGame();
-    print_r($game);
-    $fname = "Brain\Games\\".$game."\\getGameData";
-    ['rule' => $rule] = $fname();
+    ['rule' => $rule] = $gameData();
     line($rule);
     
     $countCorrectAnswers = 0;
-    $iterationsAmount = 3;
+    define("ITERATIONS_AMOUNT", 3);
 
-    while ($countCorrectAnswers <= $iterationsAmount) {
-        if ($countCorrectAnswers == $iterationsAmount) {
+    while ($countCorrectAnswers <= ITERATIONS_AMOUNT) {
+        if ($countCorrectAnswers == ITERATIONS_AMOUNT) {
             line("Congratulations, {$name}!");
             break;
         }
 
-        ['question' => $question, 'correct_answer' => $correctAnswer] = $fname();
-
+        ['question' => $question, 'correct_answer' => $correctAnswer] = $gameData();
         line("Question: {$question}");
         line("Correct answer: {$correctAnswer}");
 
-        $userAnswer = prompt('Your answer: ');
+        $userAnswer = prompt('Your answer');
 
         if ($userAnswer != $correctAnswer) {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
@@ -62,92 +54,5 @@ function playGame()
             line("Correct!");
             $countCorrectAnswers += 1;
         }
-    }
-
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function pickGame()
-{
-    $directory = 'src/Games/';
-    $scannedDirectory = array_diff(scandir($directory), array('..', '.'));
-    $pickedGame = $scannedDirectory[array_rand($scannedDirectory, 1)];
-
-    print_r(basename($pickedGame, '.php')."\n");
-    return basename($pickedGame, '.php');
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function playGamez()
-{
-    $name = getUserName();
-    countAnswer($name); 
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function getUserName()
-{
-    $name = prompt('May I have your name?');
-    return $name;
-}
-
-/**
- * Undocumented function
- *
- * @param string $username user's name
- * 
- * @return void
- */
-function countAnswer($username)
-{
-    $countCorrectAnswers = 0;
-    $iterationsAmount = 3;
-
-    while ($countCorrectAnswers <= $iterationsAmount) {
-        if ($countCorrectAnswers == $iterationsAmount) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $countCorrectAnswers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
-}
-
-/**
- * Undocumented function
- *
- * @return boolean 
- */
-function askUser()
-{
-    $question_number = rand(0, 100);
-    $question_number % 2 == 0 ? $correct_answer = "yes" :  $correct_answer = "no";
-    
-    line("Question: {$question_number}");
-    //line("Correct answer {$correct_answer}");
-
-    $user_answer = prompt('Your answer');
-    if ($user_answer != $correct_answer) {
-        line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
-        return false;
-    } else {
-        line("Correct!");
-        return true;
     }
 }

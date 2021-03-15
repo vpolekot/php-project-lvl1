@@ -13,23 +13,27 @@
 
 namespace Brain\Games\GCD;
 
-use function cli\line;
-use function cli\prompt;
+use Brain\Games\Engine as Engine;
+
 
 /**
  * Undocumented function
  *
  * @return void
  */
-function getGameData()
+function playGCD()
 {
-    [$number_1, $number_2] = getOperands();
+    $gameData = function () {
+        [$number_1, $number_2] = getOperands();
 
-    return [
-        "rule" => 'Find the greatest common divisor of given numbers.',
-        "question" => "{$number_1} {$number_2}",
-        "correct_answer" => getAnswer($number_1, $number_2)
-    ];
+        return [
+            "rule" => 'Find the greatest common divisor of given numbers.',
+            "question" => "{$number_1} {$number_2}",
+            "correct_answer" => getAnswer($number_1, $number_2)
+        ];
+    };
+
+    Engine\play($gameData);
 }
 
 /**
@@ -42,7 +46,7 @@ function getGameData()
  */
 function getAnswer($number_1, $number_2)
 {
-    return gmp_gcd($number_1, $number_2);
+    return ($number_1 % $number_2) ? getAnswer($number_2, $number_1 % $number_2) : $number_2;
 }
 
 /**
@@ -52,98 +56,5 @@ function getAnswer($number_1, $number_2)
  */
 function getOperands()
 {
-    return [rand(0, 10), rand(0, 10)];
-}
-
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function playGCD()
-{
-    $name = getUserName();
-    countAnswer($name); 
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function getUserName()
-{
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
-    return $name;
-}
-
-
-/**
- * Undocumented function
- *
- * @param string $username user's name
- * 
- * @return void
- */
-function countAnswer($username)
-{
-    $countCorrectAnswers = 0;
-
-    while ($countCorrectAnswers <= 3) {
-        if ($countCorrectAnswers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $countCorrectAnswers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
-}
-
-/**
- * Undocumented function
- *
- * @return boolean 
- */
-function askUser()
-{
-    
-    $number_1 = rand(1, 10);
-    $number_2 = rand(1, 10);
-
-    line("Question: $number_1 $number_2");
-
-    $correct_answer = findGCD($number_1, $number_2);
-
-    
-    //line("Correct answer {$correct_answer}");
-
-    $userAnswer = prompt('Your answer');
-    if ($userAnswer != $correct_answer) {
-        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
-        return false;
-    } else {
-        line("Correct!");
-        return true;
-    }
-}
-
-/**
- * Undocumented function
- *
- * @param int $a operand 1
- * @param int $b operand 2
- * 
- * @return void
- */
-function findGCD($a, $b) 
-{
-    return ($a % $b) ? findGCD($b, $a % $b) : $b;
+    return [rand(1, 10), rand(1, 10)];
 }

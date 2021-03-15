@@ -13,66 +13,7 @@
 
 namespace Brain\Games\Progression;
 
-use function cli\line;
-use function cli\prompt;
-
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function getGameData()
-{
-    $expression = getExpression();
-    
-    return [
-        "rule" => 'What number is missing in the progression?',
-        "question" => getQuestion($expression),
-        "correct_answer" => getAnswer($expression)
-    ];
-}
-
-/**
- * Undocumented function
- *
- * @param [type] $expression expression
- * 
- * @return void
- */
-function getAnswer($expression)
-{
-    [$progression, $hidden_key] = $expression;
-    return $progression[$hidden_key];
-}
-
-/**
- * Undocumented function
- *
- * @return void
- */
-function getExpression()
-{
-    $progression = array_slice(range(rand(0, 50), 100, rand(1, 10)), 0, 10);
-    $hidden_key = rand(0, count($progression) - 1);
-    return [$progression, $hidden_key];
-}
-
-/**
- * Undocumented function
- *
- * @param [type] $expression expression
- * 
- * @return void
- */
-function getQuestion($expression)
-{
-    [$progression, $hidden_key] = $expression;
-    return  '[' . implode(' ', array_slice($progression, 0, $hidden_key)) 
-                    . ' .. ' 
-                    . implode(' ', array_slice($progression, $hidden_key+1, count($progression))) 
-                    . ']';
-}
+use Brain\Games\Engine as Engine;
 
 /**
  * Undocumented function
@@ -81,8 +22,18 @@ function getQuestion($expression)
  */
 function playProgression()
 {
-    $name = getUserName();
-    countAnswer($name); 
+    $gameData = function () {
+        $progression = getProgression();
+        $hiddenKey = getHiddenKey($progression);
+    
+        return [
+            "rule" => 'What number is missing in the progression?',
+            "question" => getQuestion($progression, $hiddenKey),
+            "correct_answer" => $progression[$hiddenKey]
+        ];
+    };
+
+    Engine\play($gameData);
 }
 
 /**
@@ -90,70 +41,34 @@ function playProgression()
  *
  * @return void
  */
-function getUserName()
+function getProgression()
 {
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What number is missing in the progression?');
-    return $name;
+    return array_slice(range(rand(0, 50), 100, rand(1, 10)), 0, 10);
 }
-
 
 /**
  * Undocumented function
  *
- * @param string $username user's name
+ * @param array $progression Progression
  * 
  * @return void
  */
-function countAnswer($username)
+function getHiddenKey($progression)
 {
-    $countCorrectAnswers = 0;
-
-    while ($countCorrectAnswers <= 3) {
-        if ($countCorrectAnswers == 3) {
-            line("Congratulations, {$username}!");
-            break;
-        }
-        if (askUser($username)) {
-            $countCorrectAnswers += 1;
-        } else {
-            line("Let's try again, {$username}!");
-            break;
-        }
-    }
+    return rand(0, count($progression) - 1);
 }
 
 /**
  * Undocumented function
  *
- * @return boolean 
+ * @param array $progression Progression
+ * @param int   $hidden_key  Hidden key
+ * 
+ * @return void
  */
-function askUser()
+function getQuestion($progression, $hidden_key)
 {
-    $progression = array_slice(range(rand(0, 50), 100, rand(1, 10)), 0, 10);
-    $hidden_key = rand(0, count($progression)-1);
-    $correct_answer = $progression[$hidden_key];
-    if ($hidden_key == 0) {
-        $space = '.. ';
-    } else {
-        $space = ' .. ';
-    }
-    $question = ''.implode(' ', array_slice($progression, 0, $hidden_key)) 
-                    . $space  
-                    . implode(' ', array_slice($progression, $hidden_key+1, count($progression))) 
-                    . '';
-
-    line("Question: $question");
-    line("Correct answer {$correct_answer}");
-
-    $userAnswer = prompt('Your answer');
-    if ($userAnswer != $correct_answer) {
-        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
-        return false;
-    } else {
-        line("Correct!");
-        return true;
-    }
+    return  '' . implode(' ', array_slice($progression, 0, $hidden_key)) 
+            . ' .. ' 
+            . implode(' ', array_slice($progression, $hidden_key + 1, count($progression)));
 }
