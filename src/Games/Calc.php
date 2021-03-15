@@ -85,6 +85,7 @@ function getAnswer($expression)
             $correctAnswer = $operand_1 * $operand_2;
             break;
         default:
+            $correctAnswer = 0;
             break;
     }
 
