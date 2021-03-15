@@ -20,7 +20,7 @@ use function cli\prompt;
  * Undocumented function
  *
  * @param callback-function $gameData data
- * 
+ *
  * @return void
  */
 function play($gameData)

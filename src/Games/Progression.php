@@ -3,7 +3,7 @@
 /**
  * Comments
  * PHP version 7.4
- * 
+ *
  * @category Function
  * @package  Brain-Progression
  * @author   author <aaa@email.com>
@@ -25,7 +25,7 @@ function playProgression()
     $gameData = function () {
         $progression = getProgression();
         $hiddenKey = getHiddenKey($progression);
-    
+
         return [
             "rule" => 'What number is missing in the progression?',
             "question" => getQuestion($progression, $hiddenKey),
@@ -50,7 +50,7 @@ function getProgression()
  * Undocumented function
  *
  * @param array $progression Progression
- * 
+ *
  * @return void
  */
 function getHiddenKey($progression)
@@ -63,12 +63,12 @@ function getHiddenKey($progression)
  *
  * @param array $progression Progression
  * @param int   $hidden_key  Hidden key
- * 
+ *
  * @return void
  */
 function getQuestion($progression, $hidden_key)
 {
-    return  implode(' ', array_slice($progression, 0, $hidden_key)) 
-            . ' .. ' 
+    return  implode(' ', array_slice($progression, 0, $hidden_key))
+            . ' .. '
             . implode(' ', array_slice($progression, $hidden_key + 1, count($progression)));
 }

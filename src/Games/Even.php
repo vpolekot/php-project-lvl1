@@ -3,7 +3,7 @@
 /**
  * Comments
  * PHP version 7.4
- * 
+ *
  * @category Function
  * @package  Brain-Even
  * @author   author <aaa@email.com>
@@ -37,10 +37,10 @@ function playEven()
  * Undocumented function
  *
  * @param int $number number to check
- * 
+ *
  * @return string
  */
-function getAnswer($number) 
+function getAnswer($number)
 {
     if ($number % 2 == 0) {
         return "yes";

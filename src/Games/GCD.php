@@ -3,7 +3,7 @@
 /**
  * Comments
  * PHP version 7.4
- * 
+ *
  * @category Function
  * @package  Brain-GCD
  * @author   author <aaa@email.com>
@@ -14,7 +14,6 @@
 namespace Brain\Games\GCD;
 
 use Brain\Games\Engine as Engine;
-
 
 /**
  * Undocumented function
@@ -41,7 +40,7 @@ function playGCD()
  *
  * @param int $number_1 operand 1
  * @param int $number_2 operand 2
- * 
+ *
  * @return void
  */
 function getAnswer($number_1, $number_2)

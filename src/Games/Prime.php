@@ -3,7 +3,7 @@
 /**
  * Comments
  * PHP version 7.4
- * 
+ *
  * @category Function
  * @package  Brain-Prime
  * @author   author <aaa@email.com>
@@ -14,7 +14,6 @@
 namespace Brain\Games\Prime;
 
 use Brain\Games\Engine as Engine;
-
 
 /**
  * Undocumented function
@@ -38,18 +37,18 @@ function playPrime()
  * Undocumented function
  *
  * @param int $number number to check
- * 
- * @return string "no" if not prime, "yes" if prime 
+ *
+ * @return string "no" if not prime, "yes" if prime
  */
 function getAnswer($number)
-{ 
+{
     for ($i = 2; $i <= sqrt($number); $i++) {
         if ($number % $i == 0) {
             return "no";
         }
     }
     return "yes";
-} 
+}
 
 /**
  * Undocumented function

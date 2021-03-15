@@ -24,7 +24,7 @@ function playCalc()
 {
     $gameData = function () {
         $expression = getExpression();
-        
+
         return [
             "rule" => 'What is the result of the expression?',
             "question" => getQuestion($expression),
@@ -46,7 +46,7 @@ function getExpression()
     $picked_operation = $operations[array_rand($operations, 1)];
     $operand_1 = rand(0, 10);
     $operand_2 = rand(0, 10);
-    
+
     return [$picked_operation, $operand_1, $operand_2];
 }
 
@@ -54,7 +54,7 @@ function getExpression()
  * Undocumented function
  *
  * @param [type] $expression expression
- * 
+ *
  * @return void
  */
 function getQuestion($expression)
@@ -67,7 +67,7 @@ function getQuestion($expression)
  * Undocumented function
  *
  * @param [type] $expression expression
- * 
+ *
  * @return void
  */
 function getAnswer($expression)
@@ -75,18 +75,18 @@ function getAnswer($expression)
     [$operation, $operand_1, $operand_2] = $expression;
 
     switch ($operation) {
-    case '+':
-        $correctAnswer = $operand_1 + $operand_2;
-        break;
-    case '-':
-        $correctAnswer = $operand_1 - $operand_2;
-        break;
-    case '*':
-        $correctAnswer = $operand_1 * $operand_2;
-        break;
-    default:
-        break;
+        case '+':
+            $correctAnswer = $operand_1 + $operand_2;
+            break;
+        case '-':
+            $correctAnswer = $operand_1 - $operand_2;
+            break;
+        case '*':
+            $correctAnswer = $operand_1 * $operand_2;
+            break;
+        default:
+            break;
     }
-    
+
     return $correctAnswer;
 }
