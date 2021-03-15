@@ -22,7 +22,7 @@ use Brain\Games\Engine as Engine;
  */
 function playEven()
 {
-    $gameData = function () {
+    $gameData = function (): ?array {
         return [
             "rule" => 'Answer "yes" if the number is even, otherwise answer "no".',
             "question" => $expression = getNumber(),
@@ -52,7 +52,7 @@ function getAnswer($number)
 /**
  * Undocumented function
  *
- * @return void
+ * @return int
  */
 function getNumber()
 {

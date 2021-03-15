@@ -22,7 +22,7 @@ use Brain\Games\Engine as Engine;
  */
 function playCalc()
 {
-    $gameData = function () {
+    $gameData = function (): ?array {
         $expression = getExpression();
 
         return [
@@ -38,7 +38,7 @@ function playCalc()
 /**
  * Undocumented function
  *
- * @return void
+ * @return array
  */
 function getExpression()
 {
@@ -55,7 +55,7 @@ function getExpression()
  *
  * @param [type] $expression expression
  *
- * @return void
+ * @return string
  */
 function getQuestion($expression)
 {
@@ -68,7 +68,7 @@ function getQuestion($expression)
  *
  * @param [type] $expression expression
  *
- * @return void
+ * @return int
  */
 function getAnswer($expression)
 {

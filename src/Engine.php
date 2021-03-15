@@ -19,7 +19,7 @@ use function cli\prompt;
 /**
  * Undocumented function
  *
- * @param callback-function $gameData data
+ * @param function $gameData data
  *
  * @return void
  */

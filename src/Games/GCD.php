@@ -22,7 +22,7 @@ use Brain\Games\Engine as Engine;
  */
 function playGCD()
 {
-    $gameData = function () {
+    $gameData = function (): ?array {
         [$number_1, $number_2] = getOperands();
 
         return [
@@ -41,7 +41,7 @@ function playGCD()
  * @param int $number_1 operand 1
  * @param int $number_2 operand 2
  *
- * @return void
+ * @return int
  */
 function getAnswer($number_1, $number_2)
 {
@@ -51,7 +51,7 @@ function getAnswer($number_1, $number_2)
 /**
  * Undocumented function
  *
- * @return void
+ * @return array
  */
 function getOperands()
 {

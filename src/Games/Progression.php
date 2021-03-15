@@ -22,7 +22,7 @@ use Brain\Games\Engine as Engine;
  */
 function playProgression()
 {
-    $gameData = function () {
+    $gameData = function (): ?array {
         $progression = getProgression();
         $hiddenKey = getHiddenKey($progression);
 
@@ -39,7 +39,7 @@ function playProgression()
 /**
  * Undocumented function
  *
- * @return void
+ * @return array
  */
 function getProgression()
 {
@@ -51,7 +51,7 @@ function getProgression()
  *
  * @param array $progression Progression
  *
- * @return void
+ * @return int
  */
 function getHiddenKey($progression)
 {
@@ -64,7 +64,7 @@ function getHiddenKey($progression)
  * @param array $progression Progression
  * @param int   $hidden_key  Hidden key
  *
- * @return void
+ * @return string
  */
 function getQuestion($progression, $hidden_key)
 {
