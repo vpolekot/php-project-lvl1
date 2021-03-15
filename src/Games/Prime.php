@@ -22,7 +22,7 @@ use Brain\Games\Engine as Engine;
  */
 function playPrime()
 {
-    $gameData = function (): ?array {
+    $gameData = function (): array {
         return [
             "rule" => 'Answer "yes" if given number is prime. Otherwise answer "no".',
             "question" => $number = getNumber(),

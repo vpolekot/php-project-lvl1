@@ -22,7 +22,7 @@ use Brain\Games\Engine as Engine;
  */
 function playCalc()
 {
-    $gameData = function (): ?array {
+    $gameData = function (): array {
         $expression = getExpression();
 
         return [

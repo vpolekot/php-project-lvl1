@@ -22,7 +22,7 @@ use Brain\Games\Engine as Engine;
  */
 function playGCD()
 {
-    $gameData = function (): ?array {
+    $gameData = function (): array {
         [$number_1, $number_2] = getOperands();
 
         return [
