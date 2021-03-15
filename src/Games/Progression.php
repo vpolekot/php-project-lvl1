@@ -68,7 +68,7 @@ function getHiddenKey($progression)
  */
 function getQuestion($progression, $hidden_key)
 {
-    return  '' . implode(' ', array_slice($progression, 0, $hidden_key)) 
+    return  implode(' ', array_slice($progression, 0, $hidden_key)) 
             . ' .. ' 
             . implode(' ', array_slice($progression, $hidden_key + 1, count($progression)));
 }
