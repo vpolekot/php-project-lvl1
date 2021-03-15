@@ -7,7 +7,7 @@
  * @category Function
  * @package  Brain-Games
  * @author   author <aaa@email.com>
- * @license  License 
+ * @license  http://url.com License
  * @link     http://url.com
  */
 

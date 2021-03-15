@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comments
  * PHP version 7.4
@@ -6,9 +7,10 @@
  * @category Function
  * @package  Brain-GCD
  * @author   author <aaa@email.com>
- * @license  License 
+ * @license  http://url.com License
  * @link     http://url.com
  */
+
 namespace Brain\Games\GCD;
 
 use function cli\line;
@@ -89,15 +91,15 @@ function getUserName()
  */
 function countAnswer($username)
 {
-    $count_correct_answers = 0;
+    $countCorrectAnswers = 0;
 
-    while ($count_correct_answers <= 3) {
-        if ($count_correct_answers == 3) {
+    while ($countCorrectAnswers <= 3) {
+        if ($countCorrectAnswers == 3) {
             line("Congratulations, {$username}!");
             break;
         }
         if (askUser($username)) {
-            $count_correct_answers += 1;
+            $countCorrectAnswers += 1;
         } else {
             line("Let's try again, {$username}!");
             break;
@@ -123,9 +125,9 @@ function askUser()
     
     //line("Correct answer {$correct_answer}");
 
-    $user_answer = prompt('Your answer');
-    if ($user_answer != $correct_answer) {
-        line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
+    $userAnswer = prompt('Your answer');
+    if ($userAnswer != $correct_answer) {
+        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correct_answer}'");
         return false;
     } else {
         line("Correct!");

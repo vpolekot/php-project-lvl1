@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comments
  * PHP version 7.4
@@ -9,10 +10,14 @@
  * @license  http://url.com License
  * @link     http://url.com
  */
+
 namespace Brain\Games\Engine;
 
 use Brain\Games\Even;
 use Brain\Games\Calc;
+use Brain\Games\Prime;
+use Brain\Games\GCD;
+use Brain\Games\Progression;
 use function cli\line;
 use function cli\prompt;
 
@@ -24,13 +29,11 @@ use function cli\prompt;
 function playGame()
 {
     line('Welcome to the Brain Game!');
-    $name = getUserName();
+    $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    //$game = pickGame();*/
-    
-    $game = 'Calc';
-
+    $game = pickGame();
+    print_r($game);
     $fname = "Brain\Games\\".$game."\\getGameData";
     ['rule' => $rule] = $fname();
     line($rule);
@@ -49,10 +52,10 @@ function playGame()
         line("Question: {$question}");
         line("Correct answer: {$correctAnswer}");
 
-        $user_answer = prompt('Your answer');
+        $userAnswer = prompt('Your answer: ');
 
-        if ($user_answer != $correctAnswer) {
-            line("'{$user_answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
+        if ($userAnswer != $correctAnswer) {
+            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
             line("Let's try again, {$name}!");
             break;
         } else {
@@ -73,10 +76,9 @@ function pickGame()
     $directory = 'src/Games/';
     $scannedDirectory = array_diff(scandir($directory), array('..', '.'));
     $pickedGame = $scannedDirectory[array_rand($scannedDirectory, 1)];
-    //$pickedGame = 'Even';
 
     print_r(basename($pickedGame, '.php')."\n");
-    return $pickedGame;
+    return basename($pickedGame, '.php');
 }
 
 /**
