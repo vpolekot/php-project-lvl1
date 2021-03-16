@@ -19,7 +19,7 @@ use function cli\prompt;
 /**
  * Undocumented function
  *
- * @param callable $gameData data
+ * @param callable $gameData data from game
  *
  * @return void
  */
@@ -42,7 +42,6 @@ function play($gameData)
 
         ['question' => $question, 'correct_answer' => $correctAnswer] = $gameData();
         line("Question: {$question}");
-        line("Correct answer: {$correctAnswer}");
 
         $userAnswer = prompt('Your answer');
 
