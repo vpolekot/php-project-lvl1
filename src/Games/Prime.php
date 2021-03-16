@@ -42,6 +42,9 @@ function playPrime()
  */
 function getAnswer($number)
 {
+    if ($number == 1) {
+        return "no";
+    }
     for ($i = 2; $i <= sqrt($number); $i++) {
         if ($number % $i == 0) {
             return "no";
