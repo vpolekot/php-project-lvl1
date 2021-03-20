@@ -19,6 +19,6 @@ Fing missing value of arithmetic progression
 Check if the number is even
 [![demo](https://asciinema.org/a/SeIgKgQe8ThQhkobvc24ose6u.svg)](https://asciinema.org/a/SeIgKgQe8ThQhkobvc24ose6u?autoplay=1)
 
-#Installation
+# Installation
 
-#Usage
+# Usage
