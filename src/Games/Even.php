@@ -20,7 +20,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function playEven()
+function play()
 {
     $gameData = function (): array {
         return [

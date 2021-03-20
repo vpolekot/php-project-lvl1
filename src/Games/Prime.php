@@ -20,7 +20,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function playPrime()
+function play()
 {
     $gameData = function (): array {
         return [

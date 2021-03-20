@@ -20,7 +20,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function playProgression()
+function play()
 {
     $gameData = function (): array {
         $progression = getProgression();

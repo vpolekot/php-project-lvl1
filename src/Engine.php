@@ -19,7 +19,7 @@ use function cli\prompt;
 /**
  * Undocumented function
  *
- * @param callable $gameData data from gamegit checkout feature
+ * @param callable $gameData rule, question and answer from game
  *
  * @return void
  */
