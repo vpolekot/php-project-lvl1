@@ -20,7 +20,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function playGCD()
+function play()
 {
     $gameData = function (): array {
         [$number_1, $number_2] = getOperands();

@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Comments
- * PHP version 7.4
- *
- * @category Function
- * @package  Brain-Calc
- * @author   author <aaa@email.com>
- * @license  http://url.com License
- * @link     http://url.com
- */
-
 namespace Brain\Games\Calc;
 
 use Brain\Games\Engine as Engine;
@@ -20,7 +9,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function playCalc()
+function play()
 {
     $gameData = function (): array {
         $expression = getExpression();
