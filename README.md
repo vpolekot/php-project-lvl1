@@ -5,7 +5,7 @@
 
 [![Github Actions Status](https://github.com/vpolekot/php-project-lvl1/workflows/PHP%20CI/badge.svg)](https://github.com/vpolekot/php-project-lvl1/actions)
 
-[asciinema.org](httpshttps://asciinema.org/a/iUK6xLvaC5EUugBQFZJf8PMof).
+[asciinema.org](https://asciinema.org/a/iUK6xLvaC5EUugBQFZJf8PMof)
 <a href="https://asciinema.org/a/iUK6xLvaC5EUugBQFZJf8PMof">Brain-Even asciinema</a><br>
 <a href="https://asciinema.org/a/My7qmABnLsqBjPDJfIQTnR9HJ">Brain-Calc asciinema</a><br>
 <a href="https://asciinema.org/a/nuctqdd4vsOZilojTRXHklkYn">Brain-GCD asciinema</a><br>
