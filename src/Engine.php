@@ -15,7 +15,7 @@ const ITERATIONS_AMOUNT = 3;
 
  * @return void
  */
-function play($gameData, $gameRule)
+function play(callable $gameData, string $gameRule): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');

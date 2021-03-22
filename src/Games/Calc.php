@@ -84,5 +84,3 @@ function getExpressionResult(array $expression): int
             throw new Exception("Unknown operation: $operation!");
     }
 }
-
-
