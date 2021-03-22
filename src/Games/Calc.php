@@ -10,7 +10,7 @@ use Exception;
  *
  * @return void
  */
-function play() : void
+function play(): void
 {
     $gameData = function (): array {
         $expression = getExpression();
@@ -29,7 +29,7 @@ function play() : void
  *
  * @return string rule of the game
  */
-function getGameRule() : string
+function getGameRule(): string
 {
     return "What is the result of the expression?";
 }
@@ -39,7 +39,7 @@ function getGameRule() : string
  *
  * @return array
  */
-function getExpression() : array
+function getExpression(): array
 {
     $operations = ['+', '-', '*'];
     $picked_operation = $operations[array_rand($operations, 1)];
@@ -56,7 +56,7 @@ function getExpression() : array
  *
  * @return string
  */
-function getQuestion(array $expression) : string
+function getQuestion(array $expression): string
 {
     [$operation, $operand1, $operand2] = $expression;
     return "{$operand1} {$operation} {$operand2}";
@@ -69,7 +69,7 @@ function getQuestion(array $expression) : string
  *
  * @return int
  */
-function getExpressionResult(array $expression) : int
+function getExpressionResult(array $expression): int
 {
     [$operation, $operand1, $operand2] = $expression;
 

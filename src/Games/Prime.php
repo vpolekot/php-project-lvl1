@@ -9,7 +9,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function play() : void
+function play(): void
 {
     $gameData = function (): array {
         return [
@@ -27,7 +27,7 @@ function play() : void
  *
  * @return string rule of the game
  */
-function getGameRule() : string
+function getGameRule(): string
 {
     return 'Answer "yes" if given number is prime. Otherwise answer "no".';
 }
@@ -39,7 +39,7 @@ function getGameRule() : string
  *
  * @return bool false if not prime, true if prime
  */
-function getExpressionResult(int $number) : bool
+function getExpressionResult(int $number): bool
 {
     if ($number == 1) {
         return false;
@@ -59,7 +59,7 @@ function getExpressionResult(int $number) : bool
  *
  * @return string "no" if not prime, "yes" if prime
  */
-function getAnswer(bool $result) : string
+function getAnswer(bool $result): string
 {
     if ($result) {
         return "yes";
@@ -73,7 +73,7 @@ function getAnswer(bool $result) : string
  *
  * @return int
  */
-function getNumber() : int
+function getNumber(): int
 {
     return rand(1, 100);
 }

@@ -9,7 +9,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function play() : void
+function play(): void
 {
     $gameData = function (): array {
         return [
@@ -26,7 +26,7 @@ function play() : void
  *
  * @return string rule of the game
  */
-function getGameRule() : string
+function getGameRule(): string
 {
     return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
@@ -38,7 +38,7 @@ function getGameRule() : string
  *
  * @return string
  */
-function getAnswer(bool $result) : string
+function getAnswer(bool $result): string
 {
     if ($result) {
         return "yes";
@@ -54,7 +54,7 @@ function getAnswer(bool $result) : string
  *
  * @return string
  */
-function getExpressionResult(int $number) : string
+function getExpressionResult(int $number): string
 {
     if ($number % 2 == 0) {
         return true;
@@ -68,7 +68,7 @@ function getExpressionResult(int $number) : string
  *
  * @return int
  */
-function getNumber() : int
+function getNumber(): int
 {
     return rand(0, 100);
 }

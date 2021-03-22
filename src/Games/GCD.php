@@ -9,7 +9,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function play() : void
+function play(): void
 {
     $gameData = function (): array {
         [$number1, $number2] = getOperands();
@@ -28,7 +28,7 @@ function play() : void
  *
  * @return string rule of the game
  */
-function getGameRule() : string
+function getGameRule(): string
 {
     return "Find the greatest common divisor of given numbers.";
 }
@@ -41,7 +41,7 @@ function getGameRule() : string
  *
  * @return int
  */
-function getExpressionResult(int $number1, int $number2) : int
+function getExpressionResult(int $number1, int $number2): int
 {
     if ($number1 % $number2 != 0) {
         return getExpressionResult($number2, $number1 % $number2);
@@ -55,7 +55,7 @@ function getExpressionResult(int $number1, int $number2) : int
  *
  * @return array
  */
-function getOperands() : array
+function getOperands(): array
 {
     return [rand(1, 10), rand(1, 10)];
 }
