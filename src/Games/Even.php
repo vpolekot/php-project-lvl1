@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Comments
- * PHP version 7.4
- *
- * @category Function
- * @package  Brain-Even
- * @author   author <aaa@email.com>
- * @license  http://url.com License
- * @link     http://url.com
- */
-
 namespace Brain\Games\Even;
 
 use Brain\Games\Engine as Engine;

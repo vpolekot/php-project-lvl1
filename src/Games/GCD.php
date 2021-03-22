@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Comments
- * PHP version 7.4
- *
- * @category Function
- * @package  Brain-GCD
- * @author   author <aaa@email.com>
- * @license  http://url.com License
- * @link     http://url.com
- */
-
 namespace Brain\Games\GCD;
 
 use Brain\Games\Engine as Engine;

@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Comments
- * PHP version 7.4
- *
- * @category Function
- * @package  Engine
- * @author   author <aaa@email.com>
- * @license  http://url.com License
- * @link     http://url.com
- */
-
 namespace Brain\Games\Engine;
 
 use function cli\line;
