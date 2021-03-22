@@ -12,7 +12,7 @@ const ITERATIONS_AMOUNT = 3;
  *
  * @param callable $gameData question and answer from the game
  * @param string   $gameRule rule of the game
- 
+
  * @return void
  */
 function play($gameData, $gameRule)

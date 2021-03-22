@@ -9,7 +9,7 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function play()
+function play() : void
 {
     $gameData = function (): array {
         $progression = getProgression();
@@ -29,7 +29,7 @@ function play()
  *
  * @return string rule of the game
  */
-function getGameRule()
+function getGameRule() : string
 {
     return 'What number is missing in the progression?';
 }
@@ -39,7 +39,7 @@ function getGameRule()
  *
  * @return array
  */
-function getProgression()
+function getProgression() : array
 {
     return array_slice(range(rand(0, 50), 100, rand(1, 10)), 0, 10);
 }
@@ -51,7 +51,7 @@ function getProgression()
  *
  * @return int|string
  */
-function getHiddenKey($progression)
+function getHiddenKey(array $progression) : int
 {
     return array_rand($progression, 1);
 }
@@ -64,7 +64,7 @@ function getHiddenKey($progression)
  *
  * @return string
  */
-function getQuestion($progression, $hiddenKey)
+function getQuestion(array $progression, int $hiddenKey) : string
 {
     if ($hiddenKey == 0) {
         $space = '.. ';

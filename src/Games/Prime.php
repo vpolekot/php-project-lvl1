@@ -9,12 +9,12 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function play()
+function play() : void
 {
     $gameData = function (): array {
         return [
             "question" => $number = getNumber(),
-            "correct_answer" => getAnswer($number)
+            "correct_answer" => getAnswer(getExpressionResult($number))
         ];
     };
 
@@ -27,7 +27,7 @@ function play()
  *
  * @return string rule of the game
  */
-function getGameRule()
+function getGameRule() : string
 {
     return 'Answer "yes" if given number is prime. Otherwise answer "no".';
 }
@@ -37,19 +37,35 @@ function getGameRule()
  *
  * @param int $number number to check
  *
- * @return string "no" if not prime, "yes" if prime
+ * @return bool false if not prime, true if prime
  */
-function getAnswer($number)
+function getExpressionResult(int $number) : bool
 {
     if ($number == 1) {
-        return "no";
+        return false;
     }
     for ($i = 2; $i <= sqrt($number); $i++) {
         if ($number % $i == 0) {
-            return "no";
+            return false;
         }
     }
-    return "yes";
+    return true;
+}
+
+/**
+ * Undocumented function
+ *
+ * @param bool $result result of
+ *
+ * @return string "no" if not prime, "yes" if prime
+ */
+function getAnswer(bool $result) : string
+{
+    if ($result) {
+        return "yes";
+    } else {
+        return "no";
+    }
 }
 
 /**
@@ -57,7 +73,7 @@ function getAnswer($number)
  *
  * @return int
  */
-function getNumber()
+function getNumber() : int
 {
     return rand(1, 100);
 }

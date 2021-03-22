@@ -9,12 +9,12 @@ use Brain\Games\Engine as Engine;
  *
  * @return void
  */
-function play()
+function play() : void
 {
     $gameData = function (): array {
         return [
             "question" => $expression = getNumber(),
-            "correct_answer" => getAnswer($expression)
+            "correct_answer" => getAnswer(getExpressionResult($expression))
         ];
     };
 
@@ -26,7 +26,7 @@ function play()
  *
  * @return string rule of the game
  */
-function getGameRule()
+function getGameRule() : string
 {
     return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
@@ -34,13 +34,13 @@ function getGameRule()
 /**
  * Undocumented function
  *
- * @param int $number number to check
+ * @param int $result result of the expression
  *
- * @return string
+ * @return bool
  */
-function getAnswer($number)
+function getAnswer(int $result) : bool
 {
-    if ($number % 2 == 0) {
+    if ($result) {
         return "yes";
     } else {
         return "no";
@@ -50,9 +50,25 @@ function getAnswer($number)
 /**
  * Undocumented function
  *
+ * @param int $number number to check
+ *
+ * @return string
+ */
+function getExpressionResult(int $number) : string
+{
+    if ($number % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Undocumented function
+ *
  * @return int
  */
-function getNumber()
+function getNumber() : int
 {
     return rand(0, 100);
 }

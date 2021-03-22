@@ -10,14 +10,14 @@ use Exception;
  *
  * @return void
  */
-function play()
+function play() : void
 {
     $gameData = function (): array {
         $expression = getExpression();
 
         return [
             "question" => getQuestion($expression),
-            "correct_answer" => getAnswer($expression)
+            "correct_answer" => getExpressionResult($expression)
         ];
     };
 
@@ -29,7 +29,7 @@ function play()
  *
  * @return string rule of the game
  */
-function getGameRule()
+function getGameRule() : string
 {
     return "What is the result of the expression?";
 }
@@ -39,7 +39,7 @@ function getGameRule()
  *
  * @return array
  */
-function getExpression()
+function getExpression() : array
 {
     $operations = ['+', '-', '*'];
     $picked_operation = $operations[array_rand($operations, 1)];
@@ -56,7 +56,7 @@ function getExpression()
  *
  * @return string
  */
-function getQuestion($expression)
+function getQuestion(array $expression) : string
 {
     [$operation, $operand1, $operand2] = $expression;
     return "{$operand1} {$operation} {$operand2}";
@@ -69,7 +69,7 @@ function getQuestion($expression)
  *
  * @return int
  */
-function getAnswer($expression)
+function getExpressionResult(array $expression) : int
 {
     [$operation, $operand1, $operand2] = $expression;
 
@@ -83,5 +83,6 @@ function getAnswer($expression)
         default:
             throw new Exception("Unknown operation: $operation!");
     }
-
 }
+
+
