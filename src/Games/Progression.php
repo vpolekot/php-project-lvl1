@@ -44,7 +44,7 @@ function getProgression()
  */
 function getHiddenKey($progression)
 {
-    return rand(0, count($progression) - 1);
+    return array_rand($progression, 1);
 }
 
 /**

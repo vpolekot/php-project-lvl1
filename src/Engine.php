@@ -4,6 +4,7 @@ namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
+
 const ITERATIONS_AMOUNT = 3;
 
 /**
