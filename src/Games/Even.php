@@ -34,11 +34,11 @@ function getGameRule() : string
 /**
  * Undocumented function
  *
- * @param int $result result of the expression
+ * @param bool $result result of the expression
  *
- * @return bool
+ * @return string
  */
-function getAnswer(int $result) : bool
+function getAnswer(bool $result) : string
 {
     if ($result) {
         return "yes";
