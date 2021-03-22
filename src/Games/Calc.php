@@ -3,6 +3,7 @@
 namespace Brain\Games\Calc;
 
 use Brain\Games\Engine as Engine;
+use Exception;
 
 /**
  * Undocumented function
@@ -71,7 +72,7 @@ function getAnswer($expression)
         case '*':
             return $operand1 * $operand2;
         default:
-            print_r('Unknown operation');
+            throw new Exception("Unknown operation: $operation!");
             break;
     }
 
