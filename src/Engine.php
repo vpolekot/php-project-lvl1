@@ -4,6 +4,7 @@ namespace Brain\Games\Engine;
 
 use function cli\line;
 use function cli\prompt;
+const ITERATIONS_AMOUNT = 3;
 
 /**
  * Undocumented function
@@ -20,11 +21,10 @@ function play($gameData)
     ['rule' => $rule] = $gameData();
     line($rule);
 
-    $countCorrectAnswers = 0;
-    define("ITERATIONS_AMOUNT", 3);
+    $correctAnswersCount = 0;
 
-    while ($countCorrectAnswers <= ITERATIONS_AMOUNT) {
-        if ($countCorrectAnswers == ITERATIONS_AMOUNT) {
+    while ($correctAnswersCount <= ITERATIONS_AMOUNT) {
+        if ($correctAnswersCount == ITERATIONS_AMOUNT) {
             line("Congratulations, {$name}!");
             break;
         }
@@ -40,7 +40,7 @@ function play($gameData)
             break;
         } else {
             line("Correct!");
-            $countCorrectAnswers += 1;
+            $correctAnswersCount += 1;
         }
     }
 }
