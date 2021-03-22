@@ -33,10 +33,10 @@ function getExpression()
 {
     $operations = ['+', '-', '*'];
     $picked_operation = $operations[array_rand($operations, 1)];
-    $operand_1 = rand(0, 10);
-    $operand_2 = rand(0, 10);
+    $operand1 = rand(0, 10);
+    $operand2 = rand(0, 10);
 
-    return [$picked_operation, $operand_1, $operand_2];
+    return [$picked_operation, $operand1, $operand2];
 }
 
 /**
@@ -48,8 +48,8 @@ function getExpression()
  */
 function getQuestion($expression)
 {
-    [$operation, $operand_1, $operand_2] = $expression;
-    return "{$operand_1} {$operation} {$operand_2}";
+    [$operation, $operand1, $operand2] = $expression;
+    return "{$operand1} {$operation} {$operand2}";
 }
 
 /**
@@ -61,20 +61,20 @@ function getQuestion($expression)
  */
 function getAnswer($expression)
 {
-    [$operation, $operand_1, $operand_2] = $expression;
+    [$operation, $operand1, $operand2] = $expression;
 
     switch ($operation) {
         case '+':
-            $correctAnswer = $operand_1 + $operand_2;
+            $correctAnswer = $operand1 + $operand2;
             break;
         case '-':
-            $correctAnswer = $operand_1 - $operand_2;
+            $correctAnswer = $operand1 - $operand2;
             break;
         case '*':
-            $correctAnswer = $operand_1 * $operand_2;
+            $correctAnswer = $operand1 * $operand2;
             break;
         default:
-            $correctAnswer = 0;
+            print_r('Unknown operation');
             break;
     }
 

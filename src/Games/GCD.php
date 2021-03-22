@@ -12,12 +12,12 @@ use Brain\Games\Engine as Engine;
 function play()
 {
     $gameData = function (): array {
-        [$number_1, $number_2] = getOperands();
+        [$number1, $number2] = getOperands();
 
         return [
             "rule" => 'Find the greatest common divisor of given numbers.',
-            "question" => "{$number_1} {$number_2}",
-            "correct_answer" => getAnswer($number_1, $number_2)
+            "question" => "{$number1} {$number2}",
+            "correct_answer" => getAnswer($number1, $number2)
         ];
     };
 
@@ -27,17 +27,17 @@ function play()
 /**
  * Undocumented function
  *
- * @param int $number_1 operand 1
- * @param int $number_2 operand 2
+ * @param int $number1 operand 1
+ * @param int $number2 operand 2
  *
  * @return int
  */
-function getAnswer($number_1, $number_2)
+function getAnswer($number1, $number2)
 {
-    if ($number_1 % $number_2 != 0) {
-        return getAnswer($number_2, $number_1 % $number_2);
+    if ($number1 % $number2 != 0) {
+        return getAnswer($number2, $number1 % $number2);
     } else {
-        return $number_2;
+        return $number2;
     }
 }
 

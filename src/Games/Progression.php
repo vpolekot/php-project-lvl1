@@ -51,18 +51,18 @@ function getHiddenKey($progression)
  * Undocumented function
  *
  * @param array $progression Progression
- * @param int   $hidden_key  Hidden key
+ * @param int   $hiddenKey   Hidden key
  *
  * @return string
  */
-function getQuestion($progression, $hidden_key)
+function getQuestion($progression, $hiddenKey)
 {
-    if ($hidden_key == 0) {
+    if ($hiddenKey == 0) {
         $space = '.. ';
     } else {
         $space = ' .. ';
     }
-    return implode(' ', array_slice($progression, 0, $hidden_key))
+    return implode(' ', array_slice($progression, 0, $hiddenKey))
                 . $space
-                . implode(' ', array_slice($progression, $hidden_key + 1, count($progression)));
+                . implode(' ', array_slice($progression, $hiddenKey + 1, count($progression)));
 }
