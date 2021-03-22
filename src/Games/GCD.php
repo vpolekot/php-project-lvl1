@@ -15,13 +15,22 @@ function play()
         [$number1, $number2] = getOperands();
 
         return [
-            "rule" => 'Find the greatest common divisor of given numbers.',
             "question" => "{$number1} {$number2}",
             "correct_answer" => getAnswer($number1, $number2)
         ];
     };
 
-    Engine\play($gameData);
+    Engine\play($gameData, getGameRule());
+}
+
+/**
+ * Undocumented function
+ *
+ * @return string rule of the game
+ */
+function getGameRule()
+{
+    return "Find the greatest common divisor of given numbers.";
 }
 
 /**

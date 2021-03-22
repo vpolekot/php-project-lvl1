@@ -16,13 +16,22 @@ function play()
         $hiddenKey = getHiddenKey($progression);
 
         return [
-            "rule" => 'What number is missing in the progression?',
             "question" => getQuestion($progression, $hiddenKey),
             "correct_answer" => $progression[$hiddenKey]
         ];
     };
 
-    Engine\play($gameData);
+    Engine\play($gameData, getGameRule());
+}
+
+/**
+ * Undocumented function
+ *
+ * @return string rule of the game
+ */
+function getGameRule()
+{
+    return 'What number is missing in the progression?';
 }
 
 /**

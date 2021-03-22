@@ -16,13 +16,22 @@ function play()
         $expression = getExpression();
 
         return [
-            "rule" => 'What is the result of the expression?',
             "question" => getQuestion($expression),
             "correct_answer" => getAnswer($expression)
         ];
     };
 
-    Engine\play($gameData);
+    Engine\play($gameData, getGameRule());
+}
+
+/**
+ * Undocumented function
+ *
+ * @return string rule of the game
+ */
+function getGameRule()
+{
+    return "What is the result of the expression?";
 }
 
 /**
@@ -73,8 +82,6 @@ function getAnswer($expression)
             return $operand1 * $operand2;
         default:
             throw new Exception("Unknown operation: $operation!");
-            break;
     }
 
-    //return $correctAnswer;
 }

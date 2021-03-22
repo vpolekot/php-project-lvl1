@@ -10,17 +10,17 @@ const ITERATIONS_AMOUNT = 3;
 /**
  * Undocumented function
  *
- * @param callable $gameData rule, question and answer from game
- *
+ * @param callable $gameData question and answer from the game
+ * @param string   $gameRule rule of the game
+ 
  * @return void
  */
-function play($gameData)
+function play($gameData, $gameRule)
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    ['rule' => $rule] = $gameData();
-    line($rule);
+    line($gameRule);
 
     $correctAnswersCount = 0;
 

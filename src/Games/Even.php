@@ -13,13 +13,22 @@ function play()
 {
     $gameData = function (): array {
         return [
-            "rule" => 'Answer "yes" if the number is even, otherwise answer "no".',
             "question" => $expression = getNumber(),
             "correct_answer" => getAnswer($expression)
         ];
     };
 
-    Engine\play($gameData);
+    Engine\play($gameData, getGameRule());
+}
+
+/**
+ * Undocumented function
+ *
+ * @return string rule of the game
+ */
+function getGameRule()
+{
+    return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
 
 /**

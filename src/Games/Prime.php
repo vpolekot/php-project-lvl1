@@ -13,13 +13,23 @@ function play()
 {
     $gameData = function (): array {
         return [
-            "rule" => 'Answer "yes" if given number is prime. Otherwise answer "no".',
             "question" => $number = getNumber(),
             "correct_answer" => getAnswer($number)
         ];
     };
 
-    Engine\play($gameData);
+    Engine\play($gameData, getGameRule());
+}
+
+
+/**
+ * Undocumented function
+ *
+ * @return string rule of the game
+ */
+function getGameRule()
+{
+    return 'Answer "yes" if given number is prime. Otherwise answer "no".';
 }
 
 /**
