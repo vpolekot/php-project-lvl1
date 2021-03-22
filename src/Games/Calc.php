@@ -65,18 +65,15 @@ function getAnswer($expression)
 
     switch ($operation) {
         case '+':
-            $correctAnswer = $operand1 + $operand2;
-            break;
+            return $operand1 + $operand2;
         case '-':
-            $correctAnswer = $operand1 - $operand2;
-            break;
+            return $operand1 - $operand2;
         case '*':
-            $correctAnswer = $operand1 * $operand2;
-            break;
+            return $operand1 * $operand2;
         default:
             print_r('Unknown operation');
             break;
     }
 
-    return $correctAnswer;
+    //return $correctAnswer;
 }
