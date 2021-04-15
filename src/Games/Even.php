@@ -52,7 +52,7 @@ function getAnswer(bool $result): string
  *
  * @param int $number number to check
  *
- * @return string
+ * @return boolean
  */
 function getExpressionResult(int $number): string
 {

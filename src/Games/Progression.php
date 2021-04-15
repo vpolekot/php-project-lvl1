@@ -60,7 +60,7 @@ function getProgression(): array
  *
  * @param array $progression Progression
  *
- * @return int|string
+ * @return int
  */
 function getHiddenKey(array $progression): int
 {
