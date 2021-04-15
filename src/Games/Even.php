@@ -52,9 +52,9 @@ function getAnswer(bool $result): string
  *
  * @param int $number number to check
  *
- * @return boolean
+ * @return bool
  */
-function getExpressionResult(int $number): string
+function getExpressionResult(int $number): bool
 {
     if ($number % 2 == 0) {
         return true;
