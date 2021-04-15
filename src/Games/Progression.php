@@ -51,7 +51,7 @@ function getProgression(): array
     for ($i = 1; $i <= $length; $i++) {
         $progression[] = $progression[0] + $i * $delta;
     }
-    
+
     return $progression;
 }
 
