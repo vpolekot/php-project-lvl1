@@ -7,7 +7,9 @@ Train your brain and improve mathematical skills with 5 CLI games.
 
     composer global require vpolekot/brain-games
 
-## Games
+## How to play
+
+Just enter the name of the game and enjoy.
 
 ### Even
 
