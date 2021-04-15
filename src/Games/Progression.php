@@ -4,6 +4,9 @@ namespace Brain\Games\Progression;
 
 use Brain\Games\Engine as Engine;
 
+const MINIMAL_PROGRESSION_LENGTH = 5;
+const MAXIMUM_PROGRESSION_LENGTH = 10;
+
 /**
  * Undocumented function
  *
@@ -41,7 +44,15 @@ function getGameRule(): string
  */
 function getProgression(): array
 {
-    return array_slice(range(rand(0, 50), 100, rand(1, 10)), 0, 10);
+    $firstNumber = rand(1, 10);
+    $delta = rand(1, 10);
+    $length = rand(MINIMAL_PROGRESSION_LENGTH, MAXIMUM_PROGRESSION_LENGTH);
+    $progression = [$firstNumber];
+    for ($i = 1; $i <= $length; $i++) {
+        $progression[] = $progression[0] + $i * $delta;
+    }
+    
+    return $progression;
 }
 
 /**
