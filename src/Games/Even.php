@@ -4,6 +4,8 @@ namespace Brain\Games\Even;
 
 use Brain\Games\Engine as Engine;
 
+const GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
 /**
  * Undocumented function
  *
@@ -18,17 +20,7 @@ function play(): void
         ];
     };
 
-    Engine\play($gameData, getGameRule());
-}
-
-/**
- * Undocumented function
- *
- * @return string rule of the game
- */
-function getGameRule(): string
-{
-    return 'Answer "yes" if the number is even, otherwise answer "no".';
+    Engine\play($gameData, GAME_RULE);
 }
 
 /**

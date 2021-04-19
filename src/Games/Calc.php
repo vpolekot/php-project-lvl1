@@ -5,6 +5,8 @@ namespace Brain\Games\Calc;
 use Brain\Games\Engine as Engine;
 use Exception;
 
+const GAME_RULE = "What is the result of the expression?";
+
 /**
  * Undocumented function
  *
@@ -21,17 +23,7 @@ function play(): void
         ];
     };
 
-    Engine\play($gameData, getGameRule());
-}
-
-/**
- * Undocumented function
- *
- * @return string rule of the game
- */
-function getGameRule(): string
-{
-    return "What is the result of the expression?";
+    Engine\play($gameData, GAME_RULE);
 }
 
 /**

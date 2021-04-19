@@ -4,6 +4,8 @@ namespace Brain\Games\Prime;
 
 use Brain\Games\Engine as Engine;
 
+const GAME_RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 /**
  * Undocumented function
  *
@@ -18,18 +20,7 @@ function play(): void
         ];
     };
 
-    Engine\play($gameData, getGameRule());
-}
-
-
-/**
- * Undocumented function
- *
- * @return string rule of the game
- */
-function getGameRule(): string
-{
-    return 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    Engine\play($gameData, GAME_RULE);
 }
 
 /**

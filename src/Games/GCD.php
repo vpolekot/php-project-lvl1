@@ -4,6 +4,8 @@ namespace Brain\Games\GCD;
 
 use Brain\Games\Engine as Engine;
 
+const GAME_RULE = "Find the greatest common divisor of given numbers.";
+
 /**
  * Undocumented function
  *
@@ -20,17 +22,7 @@ function play(): void
         ];
     };
 
-    Engine\play($gameData, getGameRule());
-}
-
-/**
- * Undocumented function
- *
- * @return string rule of the game
- */
-function getGameRule(): string
-{
-    return "Find the greatest common divisor of given numbers.";
+    Engine\play($gameData, GAME_RULE);
 }
 
 /**

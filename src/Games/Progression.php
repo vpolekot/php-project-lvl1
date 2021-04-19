@@ -6,7 +6,7 @@ use Brain\Games\Engine as Engine;
 
 const MINIMAL_PROGRESSION_LENGTH = 5;
 const MAXIMUM_PROGRESSION_LENGTH = 10;
-
+const GAME_RULE = 'What number is missing in the progression?';
 /**
  * Undocumented function
  *
@@ -24,17 +24,7 @@ function play(): void
         ];
     };
 
-    Engine\play($gameData, getGameRule());
-}
-
-/**
- * Undocumented function
- *
- * @return string rule of the game
- */
-function getGameRule(): string
-{
-    return 'What number is missing in the progression?';
+    Engine\play($gameData, GAME_RULE);
 }
 
 /**
