@@ -5,32 +5,32 @@ namespace Brain\Games\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const ITERATIONS_AMOUNT = 3;
+const ITERATIONS_COUNT = 3;
 
 /**
- * Undocumented function
+ * Function for launching particular game
+ * 
+ * @param callable $getGameData question and answer from the game
+ * @param string   $getGameRule rule of the game
  *
- * @param callable $gameData question and answer from the game
- * @param string   $gameRule rule of the game
-
  * @return void
  */
-function play(callable $gameData, string $gameRule): void
+function play(callable $getGameData, string $getGameRule): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line($gameRule);
+    line($getGameRule);
 
     $correctAnswersCount = 0;
 
-    while ($correctAnswersCount <= ITERATIONS_AMOUNT) {
-        if ($correctAnswersCount == ITERATIONS_AMOUNT) {
+    while ($correctAnswersCount <= ITERATIONS_COUNT) {
+        if ($correctAnswersCount == ITERATIONS_COUNT) {
             line("Congratulations, {$name}!");
             break;
         }
 
-        ['question' => $question, 'correct_answer' => $correctAnswer] = $gameData();
+        ['question' => $question, 'correct_answer' => $correctAnswer] = $getGameData();
         line("Question: {$question}");
 
         $userAnswer = prompt('Your answer');
