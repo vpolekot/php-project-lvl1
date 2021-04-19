@@ -11,16 +11,16 @@ const ITERATIONS_COUNT = 3;
  * Function for launching particular game
  * 
  * @param callable $getGameData question and answer from the game
- * @param string   $getGameRule rule of the game
+ * @param string   $gameRule    rule of the game
  *
  * @return void
  */
-function play(callable $getGameData, string $getGameRule): void
+function play(callable $getGameData, string $gameRule): void
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line($getGameRule);
+    line($gameRule);
 
     $correctAnswersCount = 0;
 
