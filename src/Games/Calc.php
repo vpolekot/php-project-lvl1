@@ -34,11 +34,11 @@ function play(): void
 function getExpression(): array
 {
     $operations = ['+', '-', '*'];
-    $picked_operation = $operations[array_rand($operations, 1)];
+    $pickedOperation = $operations[array_rand($operations)];
     $operand1 = rand(0, 10);
     $operand2 = rand(0, 10);
 
-    return [$picked_operation, $operand1, $operand2];
+    return [$pickedOperation, $operand1, $operand2];
 }
 
 /**

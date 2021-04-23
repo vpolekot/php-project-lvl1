@@ -16,7 +16,7 @@ function play(): void
     $gameData = function (): array {
         return [
             "question" => $expression = getNumber(),
-            "correct_answer" => getAnswer(getExpressionResult($expression))
+            "correct_answer" => getAnswer(isEven($expression))
         ];
     };
 
@@ -46,13 +46,9 @@ function getAnswer(bool $result): string
  *
  * @return bool
  */
-function getExpressionResult(int $number): bool
+function isEven(int $number): bool
 {
-    if ($number % 2 == 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return $number % 2 == 0;
 }
 
 /**
