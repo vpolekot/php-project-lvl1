@@ -9,7 +9,6 @@ const MAXIMUM_PROGRESSION_LENGTH = 10;
 const GAME_RULE = 'What number is missing in the progression?';
 
 /**
- * 
  *
  * @return void
  */
@@ -32,7 +31,6 @@ function play(): void
 }
 
 /**
- * Undocumented function
  *
  * @param int $firstNumber first number of an arithmetic progression
  * @param int $delta       common difference of successive members
@@ -51,7 +49,6 @@ function getProgression($firstNumber, $delta, $length): array
 }
 
 /**
- * Undocumented function
  *
  * @param array $progression arithmetic progression
  *
@@ -63,7 +60,6 @@ function getHiddenKey(array $progression): int
 }
 
 /**
- * Undocumented function
  *
  * @param array $progression Progression
  * @param int   $hiddenKey   Hidden key

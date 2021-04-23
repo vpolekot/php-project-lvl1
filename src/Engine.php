@@ -9,7 +9,7 @@ const ITERATIONS_COUNT = 3;
 
 /**
  * Function for launching particular game
- * 
+ *
  * @param callable $getGameData question and answer from the game
  * @param string   $gameRule    rule of the game
  *
