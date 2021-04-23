@@ -7,7 +7,6 @@ use Brain\Games\Engine as Engine;
 const GAME_RULE = "Find the greatest common divisor of given numbers.";
 
 /**
- * Undocumented function
  *
  * @return void
  */
@@ -26,7 +25,6 @@ function play(): void
 }
 
 /**
- * Undocumented function
  *
  * @param int $number1 operand 1
  * @param int $number2 operand 2
@@ -43,7 +41,6 @@ function getExpressionResult(int $number1, int $number2): int
 }
 
 /**
- * Undocumented function
  *
  * @return array
  */

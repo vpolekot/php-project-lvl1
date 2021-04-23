@@ -35,7 +35,7 @@ function play(): void
  * @param int $firstNumber first number of an arithmetic progression
  * @param int $delta       common difference of successive members
  * @param int $length      length of progression
- * 
+ *
  * @return array
  */
 function getProgression($firstNumber, $delta, $length): array

@@ -7,7 +7,6 @@ use Brain\Games\Engine as Engine;
 const GAME_RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 /**
- * Undocumented function
  *
  * @return void
  */
@@ -24,7 +23,6 @@ function play(): void
 }
 
 /**
- * Undocumented function
  *
  * @param int $number number to check
  *
@@ -44,7 +42,6 @@ function getExpressionResult(int $number): bool
 }
 
 /**
- * Undocumented function
  *
  * @param bool $result result of
  *
@@ -60,7 +57,6 @@ function getAnswer(bool $result): string
 }
 
 /**
- * Undocumented function
  *
  * @return int
  */

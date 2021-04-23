@@ -8,7 +8,6 @@ use Exception;
 const GAME_RULE = "What is the result of the expression?";
 
 /**
- * Undocumented function
  *
  * @return void
  */
@@ -27,7 +26,6 @@ function play(): void
 }
 
 /**
- * Undocumented function
  *
  * @return array
  */
@@ -42,7 +40,6 @@ function getExpression(): array
 }
 
 /**
- * Undocumented function
  *
  * @param array $expression expression
  *
@@ -55,7 +52,6 @@ function getQuestion(array $expression): string
 }
 
 /**
- * Undocumented function
  *
  * @param array $expression expression
  *

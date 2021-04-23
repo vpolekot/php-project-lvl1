@@ -7,7 +7,6 @@ use Brain\Games\Engine as Engine;
 const GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
 /**
- * Undocumented function
  *
  * @return void
  */
@@ -24,7 +23,6 @@ function play(): void
 }
 
 /**
- * Undocumented function
  *
  * @param bool $result result of the expression
  *
@@ -40,7 +38,6 @@ function getAnswer(bool $result): string
 }
 
 /**
- * Undocumented function
  *
  * @param int $number number to check
  *
@@ -52,7 +49,6 @@ function isEven(int $number): bool
 }
 
 /**
- * Undocumented function
  *
  * @return int
  */
