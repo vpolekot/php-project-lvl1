@@ -13,8 +13,10 @@ const GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 function play(): void
 {
     $gameData = function (): array {
+        $expression = getNumber();
+
         return [
-            "question" => $expression = getNumber(),
+            "question" => $expression,
             "correct_answer" => getAnswer(isEven($expression))
         ];
     };
@@ -30,11 +32,7 @@ function play(): void
  */
 function getAnswer(bool $result): string
 {
-    if ($result) {
-        return "yes";
-    } else {
-        return "no";
-    }
+    return $result ? "yes" : "no";
 }
 
 /**

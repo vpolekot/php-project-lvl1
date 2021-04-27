@@ -13,9 +13,10 @@ const GAME_RULE = 'Answer "yes" if given number is prime. Otherwise answer "no".
 function play(): void
 {
     $gameData = function (): array {
+        $number = getNumber();
         return [
-            "question" => $number = getNumber(),
-            "correct_answer" => getAnswer(getExpressionResult($number))
+            "question" => $number,
+            "correct_answer" => getAnswer(isPrime($number))
         ];
     };
 
@@ -28,7 +29,7 @@ function play(): void
  *
  * @return bool false if not prime, true if prime
  */
-function getExpressionResult(int $number): bool
+function isPrime(int $number): bool
 {
     if ($number == 1) {
         return false;
@@ -49,11 +50,7 @@ function getExpressionResult(int $number): bool
  */
 function getAnswer(bool $result): string
 {
-    if ($result) {
-        return "yes";
-    } else {
-        return "no";
-    }
+    return $result ? "yes" : "no";
 }
 
 /**

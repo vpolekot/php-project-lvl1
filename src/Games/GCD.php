@@ -33,11 +33,11 @@ function play(): void
  */
 function getExpressionResult(int $number1, int $number2): int
 {
-    if ($number1 % $number2 != 0) {
-        return getExpressionResult($number2, $number1 % $number2);
-    } else {
+    $remainder = $number1 % $number2;
+    if ($remainder == 0) {
         return $number2;
     }
+    return getExpressionResult($number2, $remainder);
 }
 
 /**
