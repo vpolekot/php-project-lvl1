@@ -40,6 +40,7 @@ function play(): void
  */
 function getProgression(int $firstNumber, int $delta, int $length): array
 {
+    $progression = [];
     for ($i = 0; $i < $length; $i++) {
         $progression[] = $firstNumber + $i * $delta;
     }
