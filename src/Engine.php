@@ -25,7 +25,6 @@ function play(callable $getGameData, string $gameRule): void
     $correctAnswersCount = 0;
 
     while ($correctAnswersCount < ITERATIONS_COUNT) {
-
         ['question' => $question, 'correct_answer' => $correctAnswer] = $getGameData();
         line("Question: {$question}");
 
