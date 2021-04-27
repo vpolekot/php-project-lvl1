@@ -54,7 +54,7 @@ function getProgression(int $firstNumber, int $delta, int $length): array
  *
  * @return mixed
  */
-function getHiddenKey(array $progression): int
+function getHiddenKey(array $progression): mixed
 {
     return array_rand($progression);
 }
