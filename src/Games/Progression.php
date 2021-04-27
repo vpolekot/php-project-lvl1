@@ -52,7 +52,7 @@ function getProgression(int $firstNumber, int $delta, int $length): array
  *
  * @param array $progression arithmetic progression
  *
- * @return int
+ * @return int|string
  */
 function getHiddenKey(array $progression): int
 {
