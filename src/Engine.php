@@ -24,11 +24,7 @@ function play(callable $getGameData, string $gameRule): void
 
     $correctAnswersCount = 0;
 
-    while ($correctAnswersCount <= ITERATIONS_COUNT) {
-        if ($correctAnswersCount == ITERATIONS_COUNT) {
-            line("Congratulations, {$name}!");
-            break;
-        }
+    while ($correctAnswersCount < ITERATIONS_COUNT) {
 
         ['question' => $question, 'correct_answer' => $correctAnswer] = $getGameData();
         line("Question: {$question}");
@@ -43,5 +39,9 @@ function play(callable $getGameData, string $gameRule): void
             line("Correct!");
             $correctAnswersCount += 1;
         }
+    }
+
+    if ($correctAnswersCount == ITERATIONS_COUNT) {
+        line("Congratulations, {$name}!");
     }
 }
