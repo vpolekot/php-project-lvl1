@@ -38,11 +38,10 @@ function play(): void
  *
  * @return array
  */
-function getProgression($firstNumber, $delta, $length): array
+function getProgression(int $firstNumber, int $delta, int $length): array
 {
-    $progression = [$firstNumber];
-    for ($i = 1; $i <= $length; $i++) {
-        $progression[] = $progression[0] + $i * $delta;
+    for ($i = 0; $i < $length; $i++) {
+        $progression[] = $firstNumber + $i * $delta;
     }
 
     return $progression;
@@ -56,7 +55,7 @@ function getProgression($firstNumber, $delta, $length): array
  */
 function getHiddenKey(array $progression): int
 {
-    return intval(array_rand($progression));
+    return array_rand($progression);
 }
 
 /**
