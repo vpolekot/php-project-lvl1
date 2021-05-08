@@ -33,14 +33,12 @@ function play(callable $getGameData, string $gameRule): void
         if ($userAnswer != $correctAnswer) {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
             line("Let's try again, {$name}!");
-            break;
+            return;
         } else {
             line("Correct!");
             $correctAnswersCount += 1;
         }
     }
 
-    if ($correctAnswersCount == ITERATIONS_COUNT) {
-        line("Congratulations, {$name}!");
-    }
+    line("Congratulations, {$name}!");
 }

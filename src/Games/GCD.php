@@ -17,7 +17,7 @@ function play(): void
 
         return [
             "question" => "{$number1} {$number2}",
-            "correct_answer" => getExpressionResult($number1, $number2)
+            "correct_answer" => getGCD($number1, $number2)
         ];
     };
 
@@ -31,13 +31,13 @@ function play(): void
  *
  * @return int
  */
-function getExpressionResult(int $number1, int $number2): int
+function getGCD(int $number1, int $number2): int
 {
     $remainder = $number1 % $number2;
     if ($remainder == 0) {
         return $number2;
     }
-    return getExpressionResult($number2, $remainder);
+    return getGCD($number2, $remainder);
 }
 
 /**

@@ -31,7 +31,7 @@ function play(): void
  */
 function isPrime(int $number): bool
 {
-    if ($number == 1) {
+    if ($number <= 1) {
         return false;
     }
     for ($i = 2; $i <= sqrt($number); $i++) {
